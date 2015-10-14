@@ -1,9 +1,16 @@
 <div class="row main-header pitch-show-header">
   <div class="one column">
-      <h4 title="Vote">VOTES</h4>
 
+      <h4 title="Vote"><i class="fa fa-chevron-up
 
-      <h4>EDIT BUTTON</h4>
+          pitch-vote-up fa-2x" id="<%= @pitch["id"] %>-vote-up"></i></h4>
+      <h4 class="pitch-vote-count"><%= @pitch["num_votes"] %></h4>
+      <h4 title="Bookmark"><i class='fa fa-bookmark fa-2x
+
+          pitch-bookmark' id="<%= @pitch["id"] %>-bookmark"></i></h4>
+
+      <h4>
+      <%= link_to raw("<i class='fa fa-pencil fa-2x'></i>"), edit_pitch_path(@pitch) %></h4>
 
   </div>
 </div>
@@ -16,8 +23,8 @@
     <div class="twelve columns"><h5><em>"<%= @pitch["tagline"] %>"</em></h5></div>
   </div>
   <div class="row author-title">
-    <div><h3>author link</div>
-    <div> <%= @pitch["created_at"] %> ago</div>
+    <div><h3><%= link_to "#{@pitch["author"]}", user_path(@pitch["user"]) %></h3></div>
+    <div> <%= time_ago_in_words(@pitch["created_at"]) %> ago</div>
   </div>
 </div>
 
@@ -29,19 +36,23 @@
 </section>
 
 <div class="media">
-  <iframe width="560" height="315" src="<%= @pitch["video"]%>" frameborder="0" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="<%= @pitch["video"] %>" frameborder="0" allowfullscreen></iframe>
 </div>
 
 <br>
 
 <% if current_user && current_user.id == @pitch["user_id"] %>
-  Link to edit
+  <%= link_to "Edit Your Pitch", edit_pitch_path(@pitch) %>
 <% end %>
 
 <section id="comment-box">
-  <h4>Comments </h4>
+  <h4>Comments (<%= @pitch["comments_count"] %>)</h4>
   <div>
-   COMMENTS NOT IMPLEMENTED
+    <% if current_user %>
+      <%= react_component 'CommentList', { pitchcomments: @pitch_comments, pitch: @pitch["id"], subcomments: @subcomments, current_user: current_user.id, commenters: @commenters, timestamps: @timestamps, subcomment_commenters: @subcomments_commenters, subcomment_timestamps: @subcomments_timestamps } %>
+    <% else %>
+      <p>Please Log in to see comments</p>
+    <% end %>
   </div>
 </section>
 

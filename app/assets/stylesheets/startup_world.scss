@@ -1,0 +1,25 @@
+// Place all the styles related to the startup_world controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#user-view > div {
+  display: none;
+}
+
+#user-view div.show {
+  display: auto;
+}
+
+#select-view {
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}
+
+#tv-miniwidget-93ff8 {
+  margin: 2em;
+
+}

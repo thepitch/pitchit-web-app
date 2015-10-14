@@ -1,0 +1,58 @@
+<%= form_for @pitch, html: { id: "new-pitch-form" } do |f| %>
+  <div class="row">
+    <div class="new-pitch field five columns">
+      <%= f.text_field :title, autofocus: true, autocomplete: false, placeholder: "title" %>
+    </div>
+    <div class="six columns">
+      <p>
+        Give your pitch a title. This could be the name of your company,
+        your idea, or your own name. (50 characters max)
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="new-pitch field five columns">
+      <%= f.text_field :tagline, placeholder: "tagline" %>
+    </div>
+    <div class="six columns">
+      <p>
+        Provide a tagline for your pitch. Let people know what it's all about. Be creative! (140 characters max)
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="new-pitch field five columns">
+      <%= f.text_area :description, placeholder: "description" %>
+    </div>
+    <div class="six columns">
+      <p>
+        Here, you can expand on the tagline and go in-depth about your idea.
+        Say as much or as little as you'd like. Some starter ideas: motivations,
+        technologies, vision. (1500 characters max)
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="new-pitch field five columns media-field">
+      <%= f.url_field :media, placeholder: "media" %>
+    </div>
+    <div class="six columns">
+      <p>
+        If you have any media to attach (like a YouTube video), add the URL here.
+      </p>
+    </div>
+  </div>
+
+   <div class="new-pitch actions">
+    <%= f.submit "Submit" %>
+    
+    <% if @pitch.id %>
+      <%= button_to 'Delete', pitch_path(@pitch), method: 'delete' %>
+    <% end %>
+  </div>
+
+
+<% end %>

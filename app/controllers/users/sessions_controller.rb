@@ -1,6 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
 # before_filter :configure_sign_in_params, only: [:create]
-  include ContentHelper
+  # include ContentHelper
   respond_to :json
   skip_before_action :verify_authenticity_token, only: [:destroy]
 

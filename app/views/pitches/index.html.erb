@@ -1,40 +1,7 @@
-<ul class="pitch-list">
-  <% @pitches.each.with_index do |pitch, index| %>
-  <li class="pitch">
-    <div>
+<h1 class="page-title ">Pitch, Please!</h1>
+<div class="sort_type">
 
-      <div class="row">
-        <div class="one column rank"><h4><%= index + 1 %></h4></div>
-        <div class="pitch-title eight columns"><h4><a href="/pitches/<%= pitch["id"] %>"><%=pitch["title"] %></h4></div>
-
-      <% unless pitch["media"] == nil %>
-        <div class="three columns video-button" id="<%= pitch['id
-      '] %>">
-          <button>Show Video</button>
-          <button>Hide Video</button>
-        </div>
-      <% end %>
-      </div>
-
-
-      <div class="row pitch-info">
-        <div class="one column rank"><p>
-
-
-        </p></div>
-        <div class="eleven columns"><%= pitch["tagline"] %></div>
-      </div>
-
-      <div class="embedded video" id="<%= pitch['id'] %>-video"> </div>
-
-      <div class="row pitch-info">
-        <div class="one column rank"><p><%= pitch["title"] %>  </p></div>
-
-        <div class="two columns"><%= pitch["id"] %> comments</div>
-        <div class="four columns"><%= pitch["created_at"] %> ago</div>
-        <div class="three columns pitch-user"><a href='/pitches/<%= pitch["user"] %>'> <%= pitch["user"] %></div>
-      </div>
-    </div>
-  </li>
-  <% end %>
-</ul>
+  </div>
+<div class="pitch_list">
+  <%= render partial: 'pitch_list', locals: {pitches: @pitches} %>
+</div>

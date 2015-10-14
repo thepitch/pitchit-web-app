@@ -1,9 +1,12 @@
-body a {
-  text-decoration: none;
-}
+body {
+  a {
+    text-decoration: none;
 
-body a:hover {
-  text-decoration: none;
+    &:hover{
+      text-decoration: none;
+
+    }
+  }
 }
 
 .fa-chevron-up, .fa-bookmark {
@@ -13,6 +16,7 @@ body a:hover {
 .user-has-voted, .user-has-bookmarked {
   color: green;
 }
+
 
 .page-title {
   text-align: center;
@@ -35,10 +39,10 @@ body a:hover {
 .button_to {
   display: inline;
   margin-right: 0;
-}
 
-.button_to input {
-  display: inline;
+  input {
+    display: inline;
+  }
 }
 
 .pitch-user {
@@ -55,11 +59,12 @@ header {
   background-color: #22B7E0;
   z-index: 10;
   height: 2em;
-}
 
-header a {
-  vertical-align: bottom;
-  color: white;
+
+  a {
+    vertical-align: bottom;
+    color: white;
+  }
 }
 
 .page-body {
@@ -101,24 +106,28 @@ h4 > a {
   display: none;
 }
 
+
 #header-login-form {
+
+
   margin-top: 5px;
+
   font-size: 12px;
-}
 
-#header-login-form input[type=submit] {
-  background-color: white;
-  line-height: 1em;
-  position: relative;
-  top: -1px;
-}
+  input[type=submit] {
+    background-color: white;
+    line-height: 1em;
+    position: relative;
+    top: -1px;
+  }
 
-#header-login-form input {
-  height: 18px;
-}
+  input {
+    height: 18px;
+  }
 
-#header-login-form input + input {
-  margin-left: 1em;
+  input + input {
+    margin-left: 1em;
+  }
 }
 
 .overlay {
@@ -148,11 +157,11 @@ h4 > a {
   padding-left: 8.5%;
   padding-bottom: 2em;
   padding-right: 10em;
-}
 
-.embedded.video iframe {
-  width: 80%;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  iframe {
+    width: 80%;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  }
 }
 
 .home-link {
@@ -177,6 +186,7 @@ h4 > a {
 
 #header-signup-form input {
   display: block;
+
 }
 
 @media (max-width: 700px) {
@@ -189,15 +199,19 @@ h4 > a {
   #nav-bar div {
     display: block;
   }
+
   header {
     height: 6em;
     text-align: center;
-  }
-  header div {
-    text-align: center;
-    display: block;
-  }
-  header .u-pull-right {
-    padding-right: 10%;
+
+    div {
+      text-align: center;
+      display: block;
+    }
+
+    .u-pull-right {
+      padding-right: 10%;
+    }
   }
 }
+

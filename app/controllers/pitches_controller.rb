@@ -5,7 +5,10 @@ class PitchesController < ApplicationController
 
   def index
 
-    @pitches = HTTParty.get('localhost:3000/pitches/index')
+    response = HTTParty.get('http://localhost:3000/pitches')
+    p response
+    p "%%%%%%%%%%%%^^^^^^^^^^^^^%%%%%%%%%%%%%%"
+    @pitches = response
 
   end
 
