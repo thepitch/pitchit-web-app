@@ -1,0 +1,48 @@
+<div class="row main-header pitch-show-header">
+  <div class="one column">
+      <h4 title="Vote">VOTES</h4>
+
+
+      <h4>EDIT BUTTON</h4>
+
+  </div>
+</div>
+
+<div class="row main-inner-header">
+  <div class="row">
+    <div class="twelve columns"><h1><%= @pitch["title"] %></h1></div>
+  </div>
+  <div class="row">
+    <div class="twelve columns"><h5><em>"<%= @pitch["tagline"] %>"</em></h5></div>
+  </div>
+  <div class="row author-title">
+    <div><h3>author link</div>
+    <div> <%= @pitch["created_at"] %> ago</div>
+  </div>
+</div>
+
+<br>
+
+<section class="description">
+  <h3>Summary</h3>
+  <p><%= @pitch["description"] %></p>
+</section>
+
+<div class="media">
+  <iframe width="560" height="315" src="<%= @pitch["video"]%>" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<br>
+
+<% if current_user && current_user.id == @pitch["user_id"] %>
+  Link to edit
+<% end %>
+
+<section id="comment-box">
+  <h4>Comments </h4>
+  <div>
+   COMMENTS NOT IMPLEMENTED
+  </div>
+</section>
+
+
