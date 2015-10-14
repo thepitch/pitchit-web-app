@@ -27,7 +27,7 @@ var embedVideo = function(e){
   $(this).hide()
   console.log(url)
   $.get(url, function(data){
-    // console.log(id)
+    console.log(data)
     $('div#' + id + '-video').html('<iframe width="560" height="315" src=' + data + 'frameborder="0" allowfullscreen></iframe>')
   })
 }

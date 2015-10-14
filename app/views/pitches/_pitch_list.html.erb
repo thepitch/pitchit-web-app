@@ -33,9 +33,9 @@
           pitch-bookmark' id="<%= pitch["id"] %>-bookmark"></i></i></p></div>
 
 
-        <div class="two columns" id="<%= pitch["id"] %>-vote-count"><%= pitch["num_votes"] %> votes</div>
-        <div class="two columns"><%= pitch["comments_count"] %> comments</div>
-        <div class="four columns"><%= time_ago_in_words(pitch["created_at"]) %> ago</div>
+        <div class="two columns" id="<%= pitch["id"] %>-vote-count"><%= pitch["vote_count"] %> votes</div>
+        <div class="two columns"><%= pitch["comment_count"] %> comments</div>
+        <div class="four columns"><%= pitch["created_at"] %></div>
         <div class="three columns pitch-user">Link to <%= pitch["author"] %> page</div>
       </div>
     </div>

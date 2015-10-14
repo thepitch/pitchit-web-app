@@ -21,33 +21,9 @@ class PitchesController < ApplicationController
     p "%"*70
     @pitch = response
     @pitch_comments = @pitch["comments"]
-
-
-   #  @commenters = []
-   #  @timestamps = []
-
-   #  @subcomments = []
-   #  @subcomments_commenters = []
-   #  @subcomments_timestamps = []
-
-   #  @pitch_comments.each do |comment|
-   #    subcomment_commenters = []
-   #    subcomment_timestamps = []
-   #    comment.subcomments.each do |subcomment|
-   #      subcomment_commenters.push(subcomment.user)
-   #      subcomment_timestamps.push(time_ago_in_words(subcomment.created_at))
-   #    end
-
-   #    @subcomments.concat(comment.subcomments)
-   #    @commenters.push(comment.user)
-   #    @timestamps.push(time_ago_in_words(comment.created_at))
-
-   #    @subcomments_commenters.push(subcomment_commenters)
-   #    @subcomments_timestamps.concat(subcomment_timestamps)
-   #  end
-   # if request.xhr?
-   #   # render text: @pitch.video.to_json
-   # end
+    if request.xhr?
+      render text: @pitch["video"].to_json
+    end
 
   end
 
@@ -89,6 +65,7 @@ class PitchesController < ApplicationController
     def set_current_user
       @current_user = false
     end
+
     def pitch_params
       # params.require(:pitch).permit(:title,
       #   :tagline,
