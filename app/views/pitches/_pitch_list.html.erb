@@ -35,7 +35,7 @@
 
         <div class="two columns" id="<%= pitch["id"] %>-vote-count"><%= pitch["num_votes"] %> votes</div>
         <div class="two columns"><%= pitch["comments_count"] %> comments</div>
-        <div class="four columns"><%= time_ago_in_words(pitch["created_at"]) %> ago</div>
+        <div class="four columns"><%= pitch["created_at"] %> ago</div>
         <div class="three columns pitch-user">Link to <%= pitch["author"] %> page</div>
       </div>
     </div>
