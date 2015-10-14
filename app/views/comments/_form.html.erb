@@ -1,0 +1,5 @@
+<%= form_for :comment, url: comments_path, method: :post do |f| %>
+  <%= f.text_area :content %>
+  <%= f.hidden_field :pitch_id, :value => pitch.id %>
+  <%= f.submit %>
+<% end %>
