@@ -3,23 +3,28 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    HTTParty.get('http://localhost:3000/users/sign_up')
+  end
 
   # POST /resource
-  # def create
-  #   params.require(:user).permit(:first_name, :last_name)
-  #   super
-  # end
+  def create
+    HTTParty.post('http://localhost:3000/users',
+        params[:user]
+      )
+    super
+  end
+
+  # PUT /resource
+  def update
+    HTTParty.post('http://localhost:3000/users/' + params[:id],
+      params[:user]
+    )
+    super
+  end
 
   # GET /resource/edit
   # def edit
-  #   super
-  # end
-
-  # PUT /resource
-  # def update
   #   super
   # end
 

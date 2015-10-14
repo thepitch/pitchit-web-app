@@ -37,6 +37,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
+    awesome_print (1.6.1)
     babel-source (5.8.26)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
@@ -172,6 +173,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   byebug
   chronic
   coffee-rails (~> 4.1.0)
@@ -182,7 +184,6 @@ DEPENDENCIES
   jquery-rails
   rails (= 4.2.4)
   react-rails
-  responders (~> 2.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

@@ -1,20 +1,27 @@
 require 'httparty'
+require 'ap'
 
 class PitchesController < ApplicationController
   respond_to :html, :json
+  before_action :set_current_user
 
   def index
 
     response = HTTParty.get('http://localhost:3000/pitches')
-    p response
+    ap response
     p "%%%%%%%%%%%%^^^^^^^^^^^^^%%%%%%%%%%%%%%"
     @pitches = response
 
   end
 
   def show
-   #  @pitch = Pitch.find(params[:id])
-   #  @pitch_comments = @pitch.comments
+    response = HTTParty.get('http://localhost:3000/pitches/' + params[:id])
+    p "%"*70
+    ap response
+    p "%"*70
+    @pitch = response
+    @pitch_comments = @pitch["comments"]
+
 
    #  @commenters = []
    #  @timestamps = []
@@ -79,6 +86,9 @@ class PitchesController < ApplicationController
   end
 
   private
+    def set_current_user
+      @current_user = false
+    end
     def pitch_params
       # params.require(:pitch).permit(:title,
       #   :tagline,

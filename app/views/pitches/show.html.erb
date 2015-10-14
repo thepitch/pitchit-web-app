@@ -23,7 +23,7 @@
     <div class="twelve columns"><h5><em>"<%= @pitch["tagline"] %>"</em></h5></div>
   </div>
   <div class="row author-title">
-    <div><h3><%= link_to "#{@pitch["author"]}", user_path(@pitch["user"]) %></h3></div>
+    <div><h3> link_to "#{@pitch["author"]}", user_path(@pitch["user"])</h3></div>
     <div> <%= time_ago_in_words(@pitch["created_at"]) %> ago</div>
   </div>
 </div>
@@ -41,15 +41,15 @@
 
 <br>
 
-<% if current_user && current_user.id == @pitch["user_id"] %>
+<% if @current_user && @current_user.id == @pitch["user_id"] %>
   <%= link_to "Edit Your Pitch", edit_pitch_path(@pitch) %>
 <% end %>
 
 <section id="comment-box">
   <h4>Comments (<%= @pitch["comments_count"] %>)</h4>
   <div>
-    <% if current_user %>
-      <%= react_component 'CommentList', { pitchcomments: @pitch_comments, pitch: @pitch["id"], subcomments: @subcomments, current_user: current_user.id, commenters: @commenters, timestamps: @timestamps, subcomment_commenters: @subcomments_commenters, subcomment_timestamps: @subcomments_timestamps } %>
+    <% if @current_user %>
+       react_component 'CommentList', { pitchcomments: @pitch_comments, pitch: @pitch["id"], subcomments: @subcomments, @current_user: @current_user.id, commenters: @commenters, timestamps: @timestamps, subcomment_commenters: @subcomments_commenters, subcomment_timestamps: @subcomments_timestamps }
     <% else %>
       <p>Please Log in to see comments</p>
     <% end %>
