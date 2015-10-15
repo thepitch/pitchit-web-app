@@ -29,6 +29,7 @@ gem 'font-awesome-rails'
 gem 'chronic'
 gem 'react-rails'
 gem 'awesome_print'
+gem 'jquery-turbolinks'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

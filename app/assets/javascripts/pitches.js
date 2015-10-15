@@ -1,6 +1,7 @@
-$(document).ready(function(){
+$(document).on("ready", function(){
+  console.log("ready swag")
   $('div.pitch_list').on("click", '.show-video-button', embedVideo)
-  $('div.pitch_list').on("click", '#hide', hideVideo)
+  $('div.pitch_list').on("click", '.hide-video-button', hideVideo)
   // $('.sort_type a').on("click", sortHot)
 })
 
@@ -19,21 +20,22 @@ var sortHot = function(e){
 }
 
 
-var embedVideo = function(e){
-  e.preventDefault()
+var embedVideo = function(event){
+  console.log("lets embed")
+  event.preventDefault()
   var id = $(this).parent().parent().attr("id")
-  var url = "/pitches/" + id
+  var url = "pitches/" + id
   $('div#'+ id + ' .hide-video-button').show()
   $(this).hide()
-  console.log(url)
-  $.get(url, function(data){
-    console.log(data)
-    $('div#' + id + '-video').html('<iframe width="560" height="315" src=' + data + 'frameborder="0" allowfullscreen></iframe>')
+  $.getJSON(url, function(pitchData){
+    console.log(pitchData)
+    $('div#' + id + '-video').html('<iframe width="560" height="315" src=' + pitchData + 'frameborder="0" allowfullscreen></iframe>')
   })
 }
 
-var hideVideo = function(e){
-  e.preventDefault()
+var hideVideo = function(event){
+  console.log("let's not embed")
+  event.preventDefault()
   $(this).hide()
   $('.show-video-button').show()
   $('iframe').remove()
