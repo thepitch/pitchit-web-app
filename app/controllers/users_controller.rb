@@ -3,6 +3,8 @@ require 'json'
 require "httparty"
 
 class UsersController < ApplicationController
+  before_action :set_current_user
+
 
   def show
 
@@ -63,4 +65,23 @@ class UsersController < ApplicationController
     render json: "Success"
 
   end
+
+  private
+    def set_current_user
+      @current_user = get_current_user
+    end
+
+    def get_current_user
+      return nil unless session[:user_id]
+
+
+      current_user = RestClient.get("http://localhost:3000/users/" + session[:user_id].to_s, :accept => :json)
+
+      p "Current User*" * 20
+      p JSON.parse(current_user)
+      p "Current User*" * 20
+
+      JSON.parse(current_user)
+    end
+
 end
