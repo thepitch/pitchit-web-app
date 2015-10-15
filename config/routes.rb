@@ -9,10 +9,11 @@ Rails.application.routes.draw do
   #   sessions: 'users/sessions'
   # }
 
-  devise_scope :user do
-    get "users/:id" => "users/profiles#show", as: :user
-  end
-
+  # devise_scope :user do
+  #   get "users/:id" => "users/profiles#show", as: :user
+  # end
+  resources :sessions, only: [:new, :destroy, :create]
+  resources :users
   resources :comments, only: [:new, :create, :destroy]
   resources :subcomments, only: [:new, :create, :destroy]
 
