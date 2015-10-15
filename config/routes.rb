@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pitches#index'
 
+  get 'sort' => 'pitches#sort', as: :sort_pitches
+
   # devise_for :users, controllers: {
   #   sessions: 'users/sessions'
   # }
