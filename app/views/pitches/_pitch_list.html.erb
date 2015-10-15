@@ -5,7 +5,8 @@
 
       <div class="row">
         <div class="one column rank"><h4><%= index + 1 %></h4></div>
-        <div class="pitch-title eight columns"><h4><a href="/pitches/<%= pitch["id"] %>"><%= pitch["title"] %></a></h4></div>
+        <div class="pitch-title eight columns"><h4><a href="/pitches/<%= pitch[
+        'id'] %>"><%= pitch["title"] %></a></h4></div>
 
       <% if pitch["media"] %>
         <div class="three columns video-button" id="<%= pitch["id"] %>">

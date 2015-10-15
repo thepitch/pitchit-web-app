@@ -1,19 +1,19 @@
 $(document).ready(function(){
   $('div.pitch_list').on("click", '.show-video-button', embedVideo)
   $('div.pitch_list').on("click", '#hide', hideVideo)
-  $('.sort_type a').on("click", sortHot)
+  // $('.sort_type a').on("click", sortHot)
 })
 
 var sortHot = function(e){
-  e.preventDefault()
+  e.preventDefault();
   var data = {sort_type: $(this).attr("id")}
   console.log(data);
   $.ajax({
-    url: '/pitches',
+    url: 'http://localhost:3000/pitches?sort_type=' + data.sort_type,
     data: data,
-    dataType: "html"
+    dataType: "json"
   }).done(function(response){
-    // console.log(response)
+    console.log(response)
     $('ul').html(response)
   })
 }
