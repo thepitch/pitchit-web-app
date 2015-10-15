@@ -5,10 +5,13 @@ class PitchesController < ApplicationController
   respond_to :html, :json
   before_action :set_current_user
 
-  def index
+  def index 
+    sort_type = params[:sort_type] || "hot"
 
-    response = HTTParty.get('http://localhost:3000/pitches')
-    @pitches = response
+    response = HTTParty.get('http://localhost:3000/pitches?sort_type=' + sort_type)
+    ap response.parsed_response
+    p "%%%%%%%%%%%%^^^^^^^^^^^^^%%%%%%%%%%%%%%"
+    @pitches = response.parsed_response
 
   end
 
@@ -56,6 +59,15 @@ class PitchesController < ApplicationController
     # @pitch.destroy
 
     # redirect_to pitches_path
+  end
+
+  def sort
+    sort_type = params[:sort_type] || "hot"
+
+    response = HTTParty.get('http://localhost:3000/pitches?sort_type=' + sort_type)
+
+    @pitches = response.parsed_response
+    render partial: 'pitches/pitch_list'
   end
 
   private
