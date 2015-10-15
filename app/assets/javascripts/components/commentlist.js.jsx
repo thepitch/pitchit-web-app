@@ -17,7 +17,7 @@ var CommentList = React.createClass({
       comment: ''
     }),
     $.ajax({
-      url: '/comments',
+      url: 'http://localhost:3000/comments',
       dataType: 'json',
       type: 'post',
       data: {comment: {content: comment, pitch_id: this.props.pitch}},

@@ -31,7 +31,7 @@
   </div>
 <% end %>
 
-  <% if @user["pitches"].length > 0 %>
+  <% if @user["pitches"] && @user["pitches"].length > 0 %>
     <table class="@user-pitches">
       <thead>
         <td>Pitches</td>
@@ -48,7 +48,7 @@
     <p>No pitches.</p>
   <% end %>
 
-  <% if @user["comments"].length > 0 %>
+  <% if @user["comments"] && @user["comments"].length > 0 %>
     <table class="user-comments">
       <thead>
         <td>Comments</td>
