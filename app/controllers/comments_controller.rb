@@ -6,13 +6,12 @@ class CommentsController < ApplicationController
 
 
   def create
-    if current_user
-      @comment = current_user.comments.build(comment_params)
+      HTTParty.post(
+        'http://localhost:3000'
+
+        )
       if @comment.save
         render json: @comment
-
-        # Pitch.find(comment_params[:pitch_id]).comments << @comment
-        # redirect_to :back
       end
     else
       # redirect_to user_session_path, notice: "Please log in to add a comment!"
