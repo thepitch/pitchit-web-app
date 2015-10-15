@@ -9,12 +9,8 @@ class PitchesController < ApplicationController
     sort_type = params[:sort_type] || "hot"
 
     response = HTTParty.get('http://localhost:3000/pitches?sort_type=' + sort_type)
-    p "*" * 80
-    p "This should be the user's session" 
-    p session[:user_id]
-    p "*" * 80
-
     
+
     @pitches = response.parsed_response
 
   end
@@ -78,7 +74,20 @@ class PitchesController < ApplicationController
 
   private
     def set_current_user
-      @current_user = false
+      @current_user = get_current_user
+    end
+
+    def get_current_user
+      return nil unless session[:user_id]
+
+
+      current_user = RestClient.get("http://localhost:3000/users/" + session[:user_id].to_s, :accept => :json)
+
+      p "Current User*" * 20
+      p JSON.parse(current_user)
+      p "Current User*" * 20
+
+      JSON.parse(current_user)
     end
 
     def pitch_params

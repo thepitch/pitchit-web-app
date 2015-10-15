@@ -1,8 +1,8 @@
 module ApplicationHelper
-  def current_user
-    response = HTTParty.get('http://localhost:3000/current-user').parsed_response
-    !!response
-  end
+  # def current_user
+  #   # response = HTTParty.get('http://localhost:3000/current-user').parsed_response
+  #   # !!response
+  # end
 
 
   def user_has_voted?(votable_id, votable_type)

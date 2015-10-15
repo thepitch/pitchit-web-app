@@ -1,16 +1,16 @@
 <div class="row" id="nav-bar">
     <div class="one column"><%= link_to "Home", pitches_path, :class => "home-link" %></div>
     <div class="one column"><%= link_to "News", startup_world_path %></div>
-  <% if @current_user %>
+  <% if session[:user_id] %>
       <div class="four columns user-welcome">Logged in as <strong><%= @current_user["email"] %></strong></div>
       <div class="six columns u-pull-right user-links">
         <%= link_to "Make a Pitch", new_pitch_path %>
         &nbsp;&nbsp;&nbsp;
-        <%= link_to "Your Profile", user_path(current_user) %>
+        <%= link_to "Your Profile", user_path(@current_user["id"]) %>
         &nbsp;&nbsp;&nbsp;
-        <%= link_to 'Edit profile', edit_user_path, :class => 'navbar-link' %>
+        <%= link_to 'Edit profile', edit_user_path(@current_user["id"]), :class => 'navbar-link' %>
         &nbsp;&nbsp;&nbsp;
-        <%= link_to "Logout", destroy_session_path, method: :delete, :class => 'navbar-link'  %>
+        <%= link_to "Logout", session_path(@current_user["id"]), method: :delete, :class => 'navbar-link'  %>
       </div>
     <% else %>
       <div class="one columns u-pull-right"><%= link_to "Sign up", new_user_path, :class => 'navbar-link header-signup-link'  %></div>
