@@ -1,4 +1,5 @@
-require "date"
+require 'ap'
+
 class StartupWorldController < ApplicationController
   def index
     # if current_user
@@ -7,6 +8,6 @@ class StartupWorldController < ApplicationController
     #   @user_type = "guest"
     # end
     @user_type = "guest"
-    # @pitch_of_the_week = Pitch.where("created_at > :week", {week: 1.week.ago }).sort_pitches("score").first
+    @pitch_of_the_week = HTTParty.get('http://localhost:3000/pitch-of-the-week')
   end
 end
