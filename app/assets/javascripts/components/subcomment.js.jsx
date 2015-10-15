@@ -11,7 +11,7 @@ var SubComment = React.createClass({
       {this.props.content}
 
       <div className="row">
-          <div className="five columns">&mdash; <em>{this.props.subcommenterName}, {this.props.subcommentTime}</em></div>
+          <div className="five columns commenter">&mdash; <em>{this.props.subcommenterName}, {this.props.subcommentTime}</em></div>
         </div>
       </div>
       )
