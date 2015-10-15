@@ -37,9 +37,12 @@ var sendUserInfo = function(e){
     url: url,
     data: data,
     method: "post",
-    dataType: "json"
-  }).done(function(reseponse){
-    console.log(response)
-
+    dataType: "json",
+    crossDomain: true,
+    xhrFields: {
+      withCredentials: true
+    }
+  }).done(function(response){
+    window.location.replace("/users/"  + response.id);
   })
 }
