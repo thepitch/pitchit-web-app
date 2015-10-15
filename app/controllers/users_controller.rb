@@ -7,6 +7,8 @@ class UsersController < ApplicationController
 
     response = HTTParty.get('http://localhost:3000/users/'+id)
     ap response
+
+    
     @user = response
   end
 
