@@ -23,7 +23,7 @@
     <div class="twelve columns"><h5><em>"<%= @pitch["tagline"] %>"</em></h5></div>
   </div>
   <div class="row author-title">
-    <div><h3> link_to "#{@pitch["author"]}", user_path(@pitch["user"])</h3></div>
+    <div><h3><%= link_to "#{@pitch["author"]}", user_path(@pitch["user_id"]) %></h3></div>
     <div> <%= time_ago_in_words(@pitch["created_at"]) %> ago</div>
   </div>
 </div>
@@ -42,7 +42,7 @@
 <br>
 
 <% if @current_user && @current_user.id == @pitch["user_id"] %>
-  <%= link_to "Edit Your Pitch", edit_pitch_path(@pitch) %>
+  <%= link_to "Edit Your Pitch", edit_pitch_path(@pitch["id"]) %>
 <% end %>
 
 <section id="comment-box">
