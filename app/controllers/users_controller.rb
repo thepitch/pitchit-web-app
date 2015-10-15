@@ -3,11 +3,15 @@ require 'ap'
 class UsersController < ApplicationController
 
   def show
+    id = params[:id]
 
+    response = HTTParty.get('http://localhost:3000/users/'+id)
+    ap response
+    @user = response
   end
 
   def new
-    p "HIT"
+    @user = {}
   end
 
   def create
