@@ -27,4 +27,19 @@ class ApplicationController < ActionController::Base
   #   devise_parameter_sanitizer.for(:account_update) << :company
   #   devise_parameter_sanitizer.for(:account_update) << :picture_url
   # end
+    def allow_cross_origin_requests
+    p request.headers['HTTP_ORIGIN']
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+    headers['Access-Control-Max-Age'] = '1728000'
+    # if /\Ahttps?:\/\/localhost:3000\z/ =~ request.headers['HTTP_ORIGIN']
+    #   p "************************"
+    #   p headers['Access-Control-Allow-Origin']
+    #   p "I'M HIT!"
+    #   headers['Access-Control-Allow-Origin'] = request.headers['HTTP_ORIGIN']
+    #   p headers['Access-Control-Allow-Origin']
+    # end
+  end
 end
