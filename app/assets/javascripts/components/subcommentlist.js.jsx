@@ -19,7 +19,7 @@ var SubCommentList = React.createClass({
       subcomment: ''
     }),
     $.ajax({
-      url: '/subcomments',
+      url: 'http://localhost:3000/subcomments',
       dataType: 'json',
       type: 'post',
       data: {subcomment: {content: subcomment, comment_id: this.props.id}},
@@ -33,7 +33,7 @@ var SubCommentList = React.createClass({
 
   deleteComment: function(id){
     $.ajax({
-      url: '/subcomments/' + id,
+      url: 'http://localhost:3000/subcomments/' + id,
       dataType: 'json',
       type: 'delete',
       data: {subcomment: {id: id}},

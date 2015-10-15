@@ -32,7 +32,7 @@ var CommentList = React.createClass({
 
   deleteComment: function(id){
     $.ajax({
-      url: '/comments/' + id,
+      url: 'http://localhost:3000/comments/' + id,
       dataType: 'json',
       type: 'delete',
       data: {comment: {id: id}},
