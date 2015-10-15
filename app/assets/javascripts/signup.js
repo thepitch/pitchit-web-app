@@ -40,5 +40,6 @@ var sendUserInfo = function(e){
     dataType: "json"
   }).done(function(reseponse){
     console.log(response)
+
   })
 }
