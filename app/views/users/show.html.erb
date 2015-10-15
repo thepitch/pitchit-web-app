@@ -15,7 +15,7 @@
         <% if @user_hash["user_type"] %>
           <h4><%= @user_hash["first_name"] %> is a <%= @user_hash["user_type"] %></h4>
         <% end %>
-        <p><%= @user_hash["blurb"] || "This #{@user_hash["full_name"]} does not have a blurb yet." %></p>
+        <p><%= @user_hash["blurb"] || "This user does not have a blurb yet." %></p>
       </div>
     </div>
   </div>
