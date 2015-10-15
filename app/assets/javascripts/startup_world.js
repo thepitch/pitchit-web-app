@@ -33,19 +33,16 @@ var setupTwitter = !function(d,s,id){
 
 var loadEntrepreneurPage = function(){
   $('div#user-view div.select').hide()
-  // entrepreneurAPIs()
   setView("entrepreneur")
 }
 
 var loadVentureCapitalPage = function(){
   $('div#user-view div.select').hide()
   setView("venture-capital")
-  // ventureCapitalAPIs()
 }
 
 var loadEarlyAdopterPage = function(){
   $('div#user-view div.select').hide()
-  // earlyAdopterAPIs()
   setView("early-adopter")
 }
 
@@ -86,7 +83,7 @@ var entrepreneurAPIs = function() {
     dataType: "jsonp"
   }).done(function(response){
     response.results.collection1.map( function(article){
-      $('.links').append(
+      $('.links').html(
         "<a href='" + article.property1.href + "'>" + article.property1.text + "</a> -- Wired <br>")
     })
   }).fail( function(response){
@@ -95,6 +92,7 @@ var entrepreneurAPIs = function() {
 }
 //EARLY ADOPTERS
 var earlyAdopterAPIs = function(){
+  $('p.trending').empty()
   $('.links').empty()
   var url = "https://www.kimonolabs.com/api/636uo7py?apikey=tNrHwUhcshyBMnTyYVc5zzku1xjKUq1x"
   $.ajax({
@@ -145,8 +143,6 @@ var ventureCapitalAPIs = function(){
       $('.links').append("<a href = " + article.property1.href + ">" + article.property1.text + "</a> -- VC Daily <br>")
     })
   })
-
-
 }
 
 var stockWindow= function(){
