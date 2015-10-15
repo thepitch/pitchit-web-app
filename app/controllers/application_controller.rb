@@ -5,8 +5,13 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   # protect_from_forgery with: :exception
   protect_from_forgery with: :null_session
-  # before_action :authenticate_user!
+  # before_action :get_current_user
 
+  before_action :set_gon_session
+
+  def set_gon_session
+    gon.session = session
+  end
 
 
   # protected
@@ -27,7 +32,7 @@ class ApplicationController < ActionController::Base
   #   devise_parameter_sanitizer.for(:account_update) << :company
   #   devise_parameter_sanitizer.for(:account_update) << :picture_url
   # end
-    def allow_cross_origin_requests
+  def allow_cross_origin_requests
     p request.headers['HTTP_ORIGIN']
     headers['Access-Control-Allow-Origin'] = '*'
     headers['Access-Control-Request-Method'] = '*'
@@ -42,4 +47,9 @@ class ApplicationController < ActionController::Base
     #   p headers['Access-Control-Allow-Origin']
     # end
   end
+
+  def get_current_user
+    HTTParty.get('http://localhost:3000/current-user')
+  end
+
 end

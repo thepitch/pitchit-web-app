@@ -9,9 +9,11 @@ class PitchesController < ApplicationController
     sort_type = params[:sort_type] || "hot"
 
     response = HTTParty.get('http://localhost:3000/pitches?sort_type=' + sort_type)
-    ap response.parsed_response
-    p "%%%%%%%%%%%%^^^^^^^^^^^^^%%%%%%%%%%%%%%"
-    
+    p "*" * 80
+    p "This should be the user's session" 
+    p session[:user_id]
+    p "*" * 80
+
     
     @pitches = response.parsed_response
 

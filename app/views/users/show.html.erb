@@ -1,21 +1,21 @@
 <div class="profile-header">
-  <% if @current_user %>
+  <% if @user_hash["id"] == session[:user_id] %>
     <h1>Your Profile</h1>
   <% end %>
 
   <div class="row">
-    <% if @user["picture_url"] %>
+    <% if @user_hash["picture_url"] %>
       <div class="four columns avatar">
-        <img src=<%= @user["picture_url"] %> class="avatar-photo">
+        <img src=<%= @user_hash["picture_url"] %> class="avatar-photo">
       </div>
     <% end %>
     <div class="eight columns">
       <div class="row">
-        <h1><%= @user["full_name"] %></h1>
-        <% if @user["user_type"] %>
-          <h4><%= @user["first_name"] %> is a <%= @user["user_type"] %></h4>
+        <h1><%= @user_hash["full_name"] %></h1>
+        <% if @user_hash["user_type"] %>
+          <h4><%= @user_hash["first_name"] %> is a <%= @user_hash["user_type"] %></h4>
         <% end %>
-        <p><%= @user["blurb"] || "This @user does not have a blurb yet." %></p>
+        <p><%= @user_hash["blurb"] || "This @user_hash does not have a blurb yet." %></p>
       </div>
     </div>
   </div>
@@ -24,20 +24,20 @@
   <div class="contact">
     <h4>Click for Contact Information</h4>
     <ul class="contact-list">
-      <%= raw("<li>Phone: #{@user["phone"]}</li>") if @user["phone"] %>
-      <%= raw("<li>Email: #{@user["email"]}</li>") if @user["email"] %>
-      <%= raw("<li>Company: #{@user["company"]}</li>") if @user["company"] %>
+      <%= raw("<li>Phone: #{@user_hash["phone"]}</li>") if @user_hash["phone"] %>
+      <%= raw("<li>Email: #{@user_hash["email"]}</li>") if @user_hash["email"] %>
+      <%= raw("<li>Company: #{@user_hash["company"]}</li>") if @user_hash["company"] %>
     </ul>
   </div>
 <% end %>
 
-  <% if @user["pitches"] && @user["pitches"].length > 0 %>
-    <table class="@user-pitches">
+  <% if @user_hash["pitches"] && @user_hash["pitches"].length > 0 %>
+    <table class="@user_hash-pitches">
       <thead>
         <td>Pitches</td>
         <td class="votes-heading">Votes</td>
       </thead>
-      <% @user["pitches"].each do |pitch| %>
+      <% @user_hash["pitches"].each do |pitch| %>
       <tr>
         <td><p><h3><%= link_to "#{pitch["title"]}", pitch_path(pitch["id"]) %></h3><br><em><%= pitch["tagline"] %></em></p></td>
         <td class="vote-count"><%= pitch["vote_count"] %></td>
@@ -48,13 +48,13 @@
     <p>No pitches.</p>
   <% end %>
 
-  <% if @user["comments"] && @user["comments"].length > 0 %>
+  <% if @user_hash["comments"] && @user_hash["comments"].length > 0 %>
     <table class="user-comments">
       <thead>
         <td>Comments</td>
         <td class="votes-heading">Votes</td>
       </thead>
-      <% @user["comments"].each do |comment| %>
+      <% @user_hash["comments"].each do |comment| %>
       <tr>
         <td><p><%= link_to "#{comment["pitch_title"]}", pitch_path(comment["pitch_id"]) %><br><%= comment["content"] %> </p></td>
         <td class="vote-count"><%= comment["vote_count"] %></td>
@@ -66,11 +66,11 @@
   <% end %>
 
 <% if @current_user %>
-  <table class="@user-bookmarks">
+  <table class="@user_hash-bookmarks">
     <thead>
       <td>Your Bookmarks</td>
     </thead>
-    <% @user["votes"].select(&:bookmarked).each do |vote| %>
+    <% @user_hash["votes"].select(&:bookmarked).each do |vote| %>
       <tr>
         <% if vote["votable_type"] == "Pitch" %>
           <td><p><%= link_to "#{vote["votable_title"]}", pitch_path(vote["votable_id"]) %><br><em><%= vote["votable_tagline"] %></em></p></td>
