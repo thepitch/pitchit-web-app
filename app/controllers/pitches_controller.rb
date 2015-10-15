@@ -39,6 +39,7 @@ class PitchesController < ApplicationController
   end
 
   def create
+
     # @pitch = current_user.pitches.new(pitch_params)
     # if @pitch.save
     #   redirect_to @pitch
