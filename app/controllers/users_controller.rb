@@ -11,13 +11,14 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = {}
+
   end
 
   def create
+    ap params
     ap params[:user]
-    HTTParty.post('http://localhost:3000/resource',
-      params[:user]
+    HTTParty.post('http://localhost:3000/users',
+      {user: params}
     )
     redirect_to '/pitches'
   end

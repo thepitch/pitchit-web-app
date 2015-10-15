@@ -8,17 +8,12 @@ class PitchesController < ApplicationController
   def index
 
     response = HTTParty.get('http://localhost:3000/pitches')
-    ap response
-    p "%%%%%%%%%%%%^^^^^^^^^^^^^%%%%%%%%%%%%%%"
     @pitches = response
 
   end
 
   def show
     response = HTTParty.get('http://localhost:3000/pitches/' + params[:id])
-    p "%"*70
-    ap response
-    p "%"*70
     @pitch = response
     @pitch_comments = @pitch["comments"]
     if request.xhr?
