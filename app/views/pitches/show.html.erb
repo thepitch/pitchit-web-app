@@ -8,9 +8,9 @@
       <h4 title="Bookmark"><i class='fa fa-bookmark fa-2x
 
           pitch-bookmark' id="<%= @pitch["id"] %>-bookmark"></i></h4>
-
-      <h4>
-      <%= link_to raw("<i class='fa fa-pencil fa-2x'></i>"), edit_pitch_path(@pitch) %></h4>
+          <% if session[:user_id] %>
+      <h4><%= link_to raw("<i class='fa fa-pencil fa-2x'></i>"), edit_pitch_path(@pitch) %></h4>
+      <% end %>
 
   </div>
 </div>
