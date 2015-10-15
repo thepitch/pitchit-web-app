@@ -3,24 +3,16 @@ class SessionsController < ApplicationController
   end
 
   def create
-    response = HTTParty.post('http://localhost:3000/resource/signout', {
-        session[:params]
-      })
-
-
-    response = HTTParty.post('http://localhost:3000/users',
-                              :body => params.to_json,
-                              :headers => { 'Content-Type' => 'application/json' }
-                              )
+    response = RestClient.post 'http://localhost:3000/users', :user => params, :accept => :json
 
     if response
-      @current_user = response
-      redirect_to(@current_user)
+      @current_user = get_current_user
+      redirect_to user_path(@current_user)
     end
   end
 
   def destroy
-    HTTParty.post('http://localhost:3000/resource/signout')
-    @current_user = false
+    session[:user_id] = nil
+    redirect_to root_path
   end
 end
