@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get 'sort' => 'pitches#sort', as: :sort_pitches
 
+
+  post '/set-session' => 'users#set_session'
   # devise_for :users, controllers: {
   #   sessions: 'users/sessions'
   # }

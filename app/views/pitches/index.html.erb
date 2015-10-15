@@ -4,6 +4,9 @@
   <%= link_to "New", pitches_path(sort_type: "new"), id: "new" %> |
   <%= link_to "Top", pitches_path(sort_type: "top"), id: "top" %> |
   <%= link_to "Most Discussed", pitches_path(sort_type: "most_discussed"), id: "most_discussed" %>
+  <% if session[:user_id] %>
+    <a href="#">WELCOME!!!!!!</a>
+  <% end %>
 </div>
 <div class="pitch_list">
   <%= render partial: 'pitch_list', locals: {pitches: @pitches} %>

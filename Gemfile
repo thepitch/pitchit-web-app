@@ -31,6 +31,10 @@ gem 'react-rails'
 gem 'awesome_print'
 gem 'jquery-turbolinks'
 
+gem 'rack-cors', :require => 'rack/cors'
+gem 'gon'
+gem 'rest-client'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
