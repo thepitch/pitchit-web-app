@@ -1,0 +1,21 @@
+<div id="sosw" class="<%= @user_type %>" >
+  <div class="page-title">
+    <h2>State of the Start Up World</h2>
+  </div>
+  <div id="select-view">
+    <p><button class="entrepreneur">Entrepreneur</button>
+      <button class="newideas">Early Adopter</button>
+      <button class="venture-capital">Venture Capital</button></p>
+  </div>
+  <div id="user-view">
+    <div id="entrepreneur" class="select">
+      <%= render 'startup_world/entrepreneur' %>
+    </div>
+    <div id="venture-capital" class="select">
+      <%= render 'startup_world/venturecapitalist' %>
+    </div>
+    <div id="early-adopter" class="select">
+      <%= render 'startup_world/early_adopter' %>
+    </div>
+  </div>
+</div>

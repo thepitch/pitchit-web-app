@@ -1,0 +1,10 @@
+<h1 class="page-title ">Pitch, Please!</h1>
+<div class="sort_type">
+  <%= link_to "Hot", pitches_path(sort_type: "hot"), id: "hot" %> |
+  <%= link_to "New", pitches_path(sort_type: "new"), id: "new" %> |
+  <%= link_to "Top", pitches_path(sort_type: "top"), id: "top" %> |
+  <%= link_to "Most Discussed", pitches_path(sort_type: "most_discussed"), id: "most_discussed" %>
+</div>
+<div class="pitch_list">
+  <%= render partial: 'pitch_list', locals: {pitches: @pitches} %>
+</div>
