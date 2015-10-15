@@ -12,15 +12,15 @@ class PitchesController < ApplicationController
     ap response.parsed_response
     p "%%%%%%%%%%%%^^^^^^^^^^^^^%%%%%%%%%%%%%%"
     @pitches = response.parsed_response
+
   end
 
   def show
     response = HTTParty.get('http://localhost:3000/pitches/' + params[:id])
-    p "%"*70
-    ap response
-    p "%"*70
     @pitch = response
     @pitch_comments = @pitch["comments"]
+
+    ap @pitch_comments
     if request.xhr?
       render text: @pitch["video"].to_json
     end
