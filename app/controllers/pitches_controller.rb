@@ -11,6 +11,8 @@ class PitchesController < ApplicationController
     response = HTTParty.get('http://localhost:3000/pitches?sort_type=' + sort_type)
     ap response.parsed_response
     p "%%%%%%%%%%%%^^^^^^^^^^^^^%%%%%%%%%%%%%%"
+    
+    
     @pitches = response.parsed_response
 
   end
@@ -24,6 +26,7 @@ class PitchesController < ApplicationController
     if request.xhr?
       render text: @pitch["video"].to_json
     end
+
 
   end
 

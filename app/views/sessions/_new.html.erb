@@ -1,11 +1,6 @@
-<%= form_for :user, url: sessions_path, method: :post, html: { :id => "header-login-form" } do |f| %>
+<form action="/sessions" method="post" id="header-login-form">
+  <input type="email" autofocus="true" placeholder="email">
+  <input type="password" autocomplete="off" placeholder="password">
 
-    <%= f.email_field :email, autofocus: true, placeholder: "email" %>
-
-    <%= f.password_field :password, autocomplete: "off", placeholder: "password" %>
-
-    <%= f.submit "Log in", :class => "submit-button" %>
-
-    <i class="fa fa-times exit-login"></i>
-<% end %>
+  <input type="submit" Value="Log In"
 </form>
