@@ -56,11 +56,16 @@ var SubCommentList = React.createClass({
 
     var self = this;
     var subcomments = this.state.subcomments;
-    var currentUser = this.props.currentUser;
 
     var subCommentList = subcomments.map(function(subcomment){
-      return <SubComment content={subcomment.content} id={subcomment.id} deleteComment={self.deleteComment} currentUser={currentUser} subCommentAuthor={subcomment.user_id} commentTime={subcomment.timestamp} commenter={subcomment.commenter}  />
-    });
+      return <SubComment content={subcomment.content}
+      id = {subcomment.id}
+      subcommentAuthor = {subcomment.user_id}
+      subcommenterName = {subcomment.author}
+      subcommentTime = {subcomment.created_at} />
+
+    })
+
     return (
       <div>
         <div>

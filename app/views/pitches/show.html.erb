@@ -46,13 +46,10 @@
 <% end %>
 
 <section id="comment-box">
-  <h4>Comments (<%= @pitch["comment_count"] %>)</h4>
+  <h4>Comments (<%= @pitch["comments"].length %>)</h4>
   <div>
-    <% if @current_user %>
-       react_component 'CommentList', { pitchcomments: @pitch_comments, pitch: @pitch["id"], subcomments: @subcomments, @current_user: @current_user.id, commenters: @commenters, timestamps: @timestamps, subcomment_commenters: @subcomments_commenters, subcomment_timestamps: @subcomments_timestamps }
-    <% else %>
-      <p>Please Log in to see comments</p>
-    <% end %>
+      <%= react_component 'CommentList', { pitchcomments: @pitch_comments, pitch: @pitch["id"] } %>
+
   </div>
 </section>
 

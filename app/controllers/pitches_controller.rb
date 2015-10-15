@@ -16,6 +16,8 @@ class PitchesController < ApplicationController
     response = HTTParty.get('http://localhost:3000/pitches/' + params[:id])
     @pitch = response
     @pitch_comments = @pitch["comments"]
+
+    ap @pitch_comments
     if request.xhr?
       render text: @pitch["video"].to_json
     end
