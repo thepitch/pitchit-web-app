@@ -20,7 +20,12 @@ var CommentList = React.createClass({
       url: 'http://localhost:3000/comments',
       dataType: 'json',
       type: 'post',
-      data: {comment: {content: comment, pitch_id: this.props.pitch}},
+      data: {comment: {content: comment, pitch_id: this.props.pitch, user_id: this.props.user_id }},
+      crossDomain: true,
+      xhrFields: {
+      withCredentials: true
+    },
+
       success: function(newComment) {
         var pitchcomments = this.state.pitchcomments
         var currentUser = this.state.currentUser
