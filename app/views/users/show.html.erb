@@ -70,7 +70,7 @@
     <thead>
       <td>Your Bookmarks</td>
     </thead>
-    <% @user_hash["votes"].select(&:bookmarked).each do |vote| %>
+    <% @user_hash["votes"].select{ |vote| vote["bookmarked"] == true}.each do |vote| %>
       <tr>
         <% if vote["votable_type"] == "Pitch" %>
           <td><p><%= link_to "#{vote["votable_title"]}", pitch_path(vote["votable_id"]) %><br><em><%= vote["votable_tagline"] %></em></p></td>
