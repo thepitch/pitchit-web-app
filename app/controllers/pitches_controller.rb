@@ -29,7 +29,7 @@ class PitchesController < ApplicationController
   end
 
   def new
-    # @pitch = Pitch.new
+    @pitch = {}
   end
 
   def edit
