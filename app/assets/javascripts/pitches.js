@@ -7,14 +7,13 @@ $(document).on("ready", function(){
 
 var sortHot = function(e){
   e.preventDefault();
-  var data = {sort_type: $(this).attr("id")}
-  console.log(data);
+  var data = {sort_type: $(this).attr("id")};
   $.ajax({
     url: 'http://localhost:3000/pitches?sort_type=' + data.sort_type,
     data: data,
     dataType: "json"
   }).done(function(response){
-    console.log(response)
+
     $('ul').html(response)
   })
 }
