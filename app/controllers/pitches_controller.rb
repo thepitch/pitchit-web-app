@@ -81,10 +81,6 @@ class PitchesController < ApplicationController
 
       current_user = RestClient.get("http://localhost:3000/users/" + session[:user_id].to_s, :accept => :json)
 
-      p "Current User*" * 20
-      p JSON.parse(current_user)
-      p "Current User*" * 20
-
       JSON.parse(current_user)
     end
 

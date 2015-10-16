@@ -34,7 +34,6 @@ class ApplicationController < ActionController::Base
   #   devise_parameter_sanitizer.for(:account_update) << :picture_url
   # end
   def allow_cross_origin_requests
-    p request.headers['HTTP_ORIGIN']
     headers['Access-Control-Allow-Origin'] = '*'
     headers['Access-Control-Request-Method'] = '*'
     headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
