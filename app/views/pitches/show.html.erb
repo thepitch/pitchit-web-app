@@ -41,14 +41,14 @@
 
 <br>
 
-<% if @current_user && @current_user.id == @pitch["user_id"] %>
+<% if @current_user && @current_user["id"] == @pitch["user_id"] %>
   <%= link_to "Edit Your Pitch", edit_pitch_path(@pitch["id"]) %>
 <% end %>
 
 <section id="comment-box">
   <h4>Comments (<%= @pitch["comments"].length %>)</h4>
   <div>
-      <%= react_component 'CommentList', { pitchcomments: @pitch_comments, pitch: @pitch["id"] } %>
+      <%= react_component 'CommentList', { pitchcomments: @pitch_comments, pitch: @pitch["id"], user_id: session[:user_id] } %>
 
   </div>
 </section>

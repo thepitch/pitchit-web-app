@@ -33,7 +33,7 @@ var Comment = React.createClass({
           <div className="two columns u-pull-right"><button onClick={this.onClick} type="button"> Reply </button></div>
         </div>
 
-          {this.state.showSubComments ? <SubCommentList subcomments={subComments} id={this.props.id} /> : null }
+          {this.state.showSubComments ? <SubCommentList subcomments={subComments} id={this.props.id} user_id={this.props.user_id} /> : null }
       </div>
       )
   }

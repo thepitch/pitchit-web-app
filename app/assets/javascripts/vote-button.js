@@ -9,17 +9,20 @@ $(document).ready(function(){
     // url: e.target.parentElement.href
     var votableId = $(this).attr('id').replace("-vote-up","");
     var votableType = "Pitch";
+    var userId = $('body').attr('id')
 
     if(isLoggedIn){
       if(!$(this).hasClass("user-has-voted")){
         $(this).addClass("user-has-voted");
+        var data = {votable_id: votableId, votable_type: votableType, user_id: userId}
         $.ajax({
-          url: '/votes',
+          url: 'http://localhost:3000/votes',
           method: 'POST',
           dataType: 'json',
-          data: {votable_id: votableId, votable_type: votableType}
+          data: data
         })
         .done(function(response){
+          console.log(response)
           if($(".main-header").hasClass("pitch-show-header")){
             console.log("Pitch show page");
             $(".main-header").find(".pitch-vote-count").html(response.newVoteNum)
@@ -28,7 +31,7 @@ $(document).ready(function(){
             $("#" + response.pitchId + "-vote-count").html(response.newVoteNum + " votes")
           }
         });
-      } 
+      }
     } else {
       alert("Please log in or sign up to vote.");
     }
