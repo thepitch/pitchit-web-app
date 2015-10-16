@@ -21,21 +21,21 @@
         <div class="one column rank"><p>
           <i class="fa fa-chevron-up pitch-vote-up fa-2x
           <% if user_has_voted?(pitch["id"], 'Pitch')== true %>
-            user-has-voted
+            user-has-votedon
            <% end %>"
            id="<%= pitch["id"] %>-vote-up"></i>
         </p></div>
         <div class="eleven columns"><%= pitch["tagline"] %></div>
       </div>
+
+
       <div class="row">
         <div id="<%= pitch["id"] %>-vote-count" class="one column pitch-vote-count"><%= pitch["vote_count"] %> votes</div>
 
         <div class="eleven columns embedded video" id="<%= pitch["id"] %>-video"></div>
       </div>
       <div class="row pitch-info">
-        <div class="one column rank"><p><i class='fa fa-bookmark fa-2x
-
-          pitch-bookmark' id="<%= pitch["id"] %>-bookmark"></i></i></p></div>
+        <div class="one column rank"><p><i class='fa fa-bookmark fa-2x pitch-bookmark' id="<%= pitch["id"] %>-bookmark"></i></i></p></div>
 
 
         <div class="two columns"><%= pitch["comment_count"] %> comments</div>

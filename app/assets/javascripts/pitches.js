@@ -24,6 +24,7 @@ var embedVideo = function(event){
   console.log("lets embed")
   event.preventDefault()
   var id = $(this).parent().parent().attr("id")
+  if (!id){ id = $('div.potw').attr("id") }
   var url = "/pitches/" + id
   $('div#'+ id + ' .hide-video-button').show()
   $(this).hide()
@@ -38,6 +39,6 @@ var hideVideo = function(event){
   event.preventDefault()
   $(this).hide()
   $('.show-video-button').show()
-  $('iframe').remove()
+  $('.embedded').remove()
 }
 
