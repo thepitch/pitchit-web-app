@@ -1,8 +1,8 @@
 $(document).ready(function(){
   console.log("ready")
   setView()
-  twttr.widgets.load()
-  // setupTwitter
+
+  window.twttr.widgets.load()
   $('.twitter-timeline').load()
   $("#select-view > p > button.entrepreneur").on("click", loadEntrepreneurPage)
   $(".newideas").on("click", loadEarlyAdopterPage)
@@ -37,6 +37,7 @@ var setupTwitter = !function(d,s,id){
     }}(document,"script","twitter-wjs")
 
 var loadEntrepreneurPage = function(){
+  console.log("Hit!")
   $('div#user-view div.select').hide()
   setView("entrepreneur")
 }
@@ -176,3 +177,19 @@ var stockWindow= function(){
     "noGraph": false
   });
 }
+
+window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+  return t;
+}(document, "script", "twitter-wjs"));
