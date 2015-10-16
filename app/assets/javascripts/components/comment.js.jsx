@@ -19,8 +19,7 @@ var Comment = React.createClass({
   render: function(){
     var id = this.props.id;
 
-    var subComments = this.props.subcomments
-    console.log(subComments)
+    var subComments = this.props.subcomments;
 
 
     return (

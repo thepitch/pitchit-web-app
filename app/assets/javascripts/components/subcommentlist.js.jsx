@@ -19,10 +19,14 @@ var SubCommentList = React.createClass({
       subcomment: ''
     }),
     $.ajax({
-      url: '/subcomments',
+      url: 'http://localhost:3000/subcomments',
       dataType: 'json',
       type: 'post',
-      data: {subcomment: {content: subcomment, comment_id: this.props.id}},
+      data: {subcomment: {content: subcomment, comment_id: this.props.id, user_id: this.props.user_id }},
+      crossDomain: true,
+      xhrFields: {
+      withCredentials: true
+    },
       success: function(newsubComment) {
         var subcomments = this.state.subcomments
         subcomments.push(newsubComment)
@@ -60,7 +64,7 @@ var SubCommentList = React.createClass({
     var subCommentList = subcomments.map(function(subcomment){
       return <SubComment content={subcomment.content}
       id = {subcomment.id}
-      subcommentAuthor = {subcomment.user_id}
+      user_id = {subcomment.user_id}
       subcommenterName = {subcomment.author}
       subcommentTime = {subcomment.created_at} />
 
