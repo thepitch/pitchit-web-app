@@ -18,12 +18,14 @@ module UsersHelper
     if get_current_user
       false
       user_votes = get_current_user["votes"]
-      p user_votes
-      # user_votes.each do |vote|
-      #   if vote["votable_type"] == votable_type && vote["votable_id"] == votable_id
-      #     return true
-      #   end
-      # end
+      p "*"*70
+      p votable_id
+      p votable_type
+      p "*"*70
+      user_votes.each do |vote|
+        if vote["votable_type"] == votable_type && vote["votable_id"] == votable_id.to_i
+        end
+      end
     end
 
   end
