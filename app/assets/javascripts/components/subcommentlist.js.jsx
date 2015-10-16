@@ -72,6 +72,7 @@ var SubCommentList = React.createClass({
 
     return (
       <div>
+        <h5>Replies ({this.state.subcomments.length})</h5>
         <div>
           {subCommentList}
           <SubCommentInput className="subcomment-submit" onSubmit={this.createComment} />

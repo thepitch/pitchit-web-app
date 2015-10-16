@@ -77,6 +77,7 @@ var CommentList = React.createClass({
 
     return (
       <div>
+        <h4>Comments ({this.state.pitchcomments.length})</h4>
         <div id="comment-list-container">{commentList}</div>
         <CommentInput className="comment-submit" onSubmit={this.createComment} />
       </div>
