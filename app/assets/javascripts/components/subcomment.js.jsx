@@ -4,8 +4,6 @@ var SubComment = React.createClass({
   },
 
   render: function(){
-    console.log(this.props)
-    console.log("%%%%%%%%%%")
     return (
       <div id="single-comment-body">
       {this.props.content}

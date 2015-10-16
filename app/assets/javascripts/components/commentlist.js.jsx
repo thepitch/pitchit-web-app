@@ -8,6 +8,7 @@ var CommentList = React.createClass({
   getInitialState: function(){
     return {
       pitchcomments: this.props.pitchcomments,
+      user: this.props.user_id,
       comment: ''
     }
   },
@@ -59,7 +60,7 @@ var CommentList = React.createClass({
   render: function(){
     var self = this;
     var pitchcomments = this.state.pitchcomments;
-
+    var user = this.props.user_id;
     var commentList = pitchcomments.map(function(comment){
 
 
@@ -69,12 +70,14 @@ var CommentList = React.createClass({
       subcomments={comment.subcomments}
       commentAuthor={comment.user_id}
       commenterName={comment.author}
-      commentTime={comment.created_at}/>
+      commentTime={comment.created_at}
+      user_id={user} />
 
     });
 
     return (
       <div>
+        <h4>Comments ({this.state.pitchcomments.length})</h4>
         <div id="comment-list-container">{commentList}</div>
         <CommentInput className="comment-submit" onSubmit={this.createComment} />
       </div>

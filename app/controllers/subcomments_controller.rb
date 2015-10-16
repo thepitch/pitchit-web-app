@@ -5,17 +5,18 @@ class SubcommentsController < ApplicationController
   end
 
   def create
-    if current_user
-      @subcomment = current_user.subcomments.build(subcomment_params)
-      if @subcomment.save
-        render json: @subcomment
-        # Comment.find(subcomment_params[:comment_id]).subcomments << @subcomment
-        # redirect_to :back
-      end
-    else
-      redirect_to user_session_path, notice: "Please log in to add a comment!"
-      # render 'new'
-    end
+    response = RestClient.post 'http://localhost:3000/subcomments', :subcomment => params,  :accept => :json
+    # if current_user
+    #   @subcomment = current_user.subcomments.build(subcomment_params)
+    #   if @subcomment.save
+    #     render json: @subcomment
+    #     # Comment.find(subcomment_params[:comment_id]).subcomments << @subcomment
+    #     # redirect_to :back
+    #   end
+    # else
+    #   redirect_to user_session_path, notice: "Please log in to add a comment!"
+    #   # render 'new'
+    # end
   end
 
   def destroy
