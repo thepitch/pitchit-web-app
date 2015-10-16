@@ -20,8 +20,8 @@
       <div class="row pitch-info">
         <div class="one column rank"><p>
           <i class="fa fa-chevron-up pitch-vote-up fa-2x
-          <% if user_has_voted?(pitch["id"], 'Pitch')== true %>
-            user-has-votedon
+          <% if user_has_voted?(pitch["id"], 'Pitch') %>
+            user-has-voted
            <% end %>"
            id="<%= pitch["id"] %>-vote-up"></i>
         </p></div>
