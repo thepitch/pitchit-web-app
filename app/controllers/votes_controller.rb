@@ -3,10 +3,6 @@ class VotesController < ApplicationController
 
   include VotesHelper
   def create
-    p "*" * 80
-    p params
-    p "*" * 80
-
     if params[:bookmarked] == "true"
       vote_created = self.bookmark
     else

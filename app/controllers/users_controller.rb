@@ -19,17 +19,7 @@ class UsersController < ApplicationController
   end
 
   def create
-
-    p "*" * 80
-    p "Creating a new user!"
-    p params
-    p "*" * 80
-
     response = RestClient.post 'http://localhost:3000/users', :user => params, :accept => :json
-
-    p "*" * 80
-    p "POST response"
-    p "*" * 80
 
     session[:user_id] = JSON.parse(response)["id"]
 
@@ -49,11 +39,6 @@ class UsersController < ApplicationController
 
   def set_session
     session[:user_id] = params[:id]
-
-    p "*" * 80
-    p session[:user_id]
-    p "*" * 80
-
     render json: "Success"
 
   end
@@ -68,10 +53,6 @@ class UsersController < ApplicationController
 
 
       current_user = RestClient.get("http://localhost:3000/users/" + session[:user_id].to_s, :accept => :json)
-
-      p "Current User*" * 20
-      p JSON.parse(current_user)
-      p "Current User*" * 20
 
       JSON.parse(current_user)
     end
