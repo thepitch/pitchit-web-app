@@ -21,7 +21,6 @@ var Comment = React.createClass({
 
     var subComments = this.props.subcomments;
 
-
     return (
       <div id="single-comment-body">
         <div className="row">

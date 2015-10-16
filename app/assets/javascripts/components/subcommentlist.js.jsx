@@ -15,6 +15,7 @@ var SubCommentList = React.createClass({
   },
 
   createComment: function(subcomment){
+    console.log(subcomment.user_id)
     this.setState({
       subcomment: ''
     }),
@@ -60,7 +61,6 @@ var SubCommentList = React.createClass({
 
     var self = this;
     var subcomments = this.state.subcomments;
-
     var subCommentList = subcomments.map(function(subcomment){
       return <SubComment content={subcomment.content}
       id = {subcomment.id}

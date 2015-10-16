@@ -8,6 +8,7 @@ var CommentList = React.createClass({
   getInitialState: function(){
     return {
       pitchcomments: this.props.pitchcomments,
+      user: this.props.user_id,
       comment: ''
     }
   },
@@ -59,8 +60,7 @@ var CommentList = React.createClass({
   render: function(){
     var self = this;
     var pitchcomments = this.state.pitchcomments;
-    var userid = this.props.user_id;
-    console.log(userid);
+    var user = this.props.user_id;
     var commentList = pitchcomments.map(function(comment){
 
 
@@ -71,7 +71,7 @@ var CommentList = React.createClass({
       commentAuthor={comment.user_id}
       commenterName={comment.author}
       commentTime={comment.created_at}
-      user_id={comment.user_id} />
+      user_id={user} />
 
     });
 
