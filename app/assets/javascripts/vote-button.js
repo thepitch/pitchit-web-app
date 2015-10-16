@@ -21,7 +21,7 @@ $(document).ready(function(){
           dataType: 'json',
           data: data
         })
-        .done(function(response){
+        .always(function(response){
           console.log(response)
           if($(".main-header").hasClass("pitch-show-header")){
             console.log("Pitch show page");
