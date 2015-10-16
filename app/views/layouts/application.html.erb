@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body <%= "class=user-logged-in" if 9==9 %>>
+<body <%= "class=user-logged-in" if session[:user_id] %> <%if session[:user_id]%> id='<%= session[:user_id] %>' <% end %> >
   <div class="overlay"></div>
   <div class="sign-up-box"><%= render 'users/new' %></div>
 

@@ -8,17 +8,9 @@ class UsersController < ApplicationController
 
   def show
 
-    p "*" * 80
-    p session
-    p "*" * 80
-
     id = params[:id]
 
     response = HTTParty.get('http://localhost:3000/users/'+id)
-    ap response
-
-    
-
     @user_hash = response
   end
 
@@ -27,14 +19,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    
+
     p "*" * 80
     p "Creating a new user!"
     p params
     p "*" * 80
 
     response = RestClient.post 'http://localhost:3000/users', :user => params, :accept => :json
-    
+
     p "*" * 80
     p "POST response"
     p "*" * 80
