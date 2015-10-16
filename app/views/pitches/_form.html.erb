@@ -1,0 +1,57 @@
+<form id="new-pitch-form" class="new_pitch" action="/pitches" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+  <input name="pitch[user_id]" type="hidden" value="<%= @current_user['id'] %>" >
+  <div class="row">
+    <div class="new-pitch field five columns">
+      <input autofocus="autofocus" autocomplete="false" placeholder="title" type="text" name="pitch[title]" id="pitch_title" />
+    </div>
+    <div class="six columns">
+      <p>
+        Give your pitch a title. This could be the name of your company,
+        your idea, or your own name. (50 characters max)
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="new-pitch field five columns">
+      <input placeholder="tagline" type="text" name="pitch[tagline]" id="pitch_tagline" />
+    </div>
+    <div class="six columns">
+      <p>
+        Provide a tagline for your pitch. Let people know what it's all about. Be creative! (140 characters max)
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="new-pitch field five columns">
+      <textarea placeholder="description" name="pitch[description]" id="pitch_description">
+</textarea>
+    </div>
+    <div class="six columns">
+      <p>
+        Here, you can expand on the tagline and go in-depth about your idea.
+        Say as much or as little as you'd like. Some starter ideas: motivations,
+        technologies, vision. (1500 characters max)
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="new-pitch field five columns media-field">
+      <input placeholder="media" type="url" name="pitch[media]" id="pitch_media" />
+    </div>
+    <div class="six columns">
+      <p>
+        If you have any media to attach (like a YouTube video), add the URL here.
+      </p>
+    </div>
+  </div>
+
+   <div class="new-pitch actions">
+    <input type="submit" name="commit" value="Submit" />
+    
+  </div>
+
+
+</form>

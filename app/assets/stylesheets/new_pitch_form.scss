@@ -1,0 +1,22 @@
+.new-pitch.field + .new-pitch.field {
+  margin-top: 3em;
+}
+
+.new-pitch.field input {
+  width: 100%;
+  height: 4em;
+}
+
+.new-pitch.field textarea {
+  width: 100%;
+  height: 15em;
+}
+
+.new-pitch.field + div {
+  display: none;
+}
+
+.password-info {
+  padding: 1em;
+}
+

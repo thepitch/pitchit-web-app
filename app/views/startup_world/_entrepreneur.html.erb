@@ -1,0 +1,54 @@
+<div id="entrepreneur-view">
+  <div class="row">
+    <div class= "three columns tweets">
+      <div id="startup-tweets">
+        <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/hashtag/startup" data-widget-id="653982952972353537">#startup Tweets</a>
+      </div>
+    </div>
+    <div class = "nine columns news">
+      <h3 class="center">Pitch of The Week</h3>
+      <div class="potw" id="<%= @pitch_of_the_week["id"]%>">
+
+      <div class="row">
+
+        <div class="pitch-title eight columns"><h4><%= link_to @pitch_of_the_week["title"], pitch_path(@pitch_of_the_week["id"]) %></h4></div>
+
+      <% unless @pitch_of_the_week["video"] == nil %>
+        <div class="three columns video-button" id="<%= @pitch_of_the_week["id"]%>">
+          <button class="show-video-button">Show Video</button>
+          <button class="hide-video-button u-pull-right" id="hide">Hide Video</button>
+        </div>
+      <% end %>
+      </div>
+
+
+      <div class="row pitch-info">
+        <div class="one column rank"><p>
+          <i class="fa fa-chevron-up pitch-vote-up fa-2x <% if user_has_voted?(@pitch_of_the_week["id"], 'Pitch')== true %>
+            user-has-voted
+           <% end %>" id="<%= @pitch_of_the_week["id"] %>-vote-up"></i>
+        </p></div>
+        <div class="eleven columns"><%= @pitch_of_the_week["tagline"] %></div>
+      </div>
+
+
+      <div class="row">
+        <div class="one column" id="<%= @pitch_of_the_week["id"] %>-vote-count"><%= @pitch_of_the_week["votes_count"] %> votes</div>
+        <div class="eleven columns embedded video" id="<%= @pitch_of_the_week["id"] %>-video"></div>
+      </div>
+      <div class="row pitch-info">
+        <div class="one column rank"><p><i class='fa fa-bookmark fa-2x
+          pitch-bookmark' id="<%= @pitch_of_the_week["id"] %>-bookmark"></i></i></p></div>
+
+
+        <div class="two columns"><%= @pitch_of_the_week["comments"].length %> comments</div>
+        <div class="four columns"><%= @pitch_of_the_week["created_at"] %> ago</div>
+        <div class="three columns pitch-user"><%= link_to @pitch_of_the_week["author"], user_path(@pitch_of_the_week["user_id"]) %></div>
+      </div>
+    </div>
+      <h3 class="center">News From Around the Web</h3>
+      <div class="links">
+      </div>
+    </div>
+  </div>
+</div>

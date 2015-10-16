@@ -1,0 +1,23 @@
+<div class="row" id="nav-bar">
+    <div class="one column"><%= link_to "Home", pitches_path, :class => "home-link" %></div>
+    <div class="one column"><%= link_to "News", startup_world_path %></div>
+  <% if session[:user_id] %>
+      <div class="four columns user-welcome">Logged in as <strong><%= get_current_user["email"] %></strong></div>
+      <div class="six columns u-pull-right user-links">
+        <%= link_to "Make a Pitch", new_pitch_path %>
+        &nbsp;&nbsp;&nbsp;
+        <%= link_to "Your Profile", user_path(get_current_user["id"]) %>
+        &nbsp;&nbsp;&nbsp;
+        <%= link_to 'Edit profile', edit_user_path(get_current_user["id"]), :class => 'navbar-link' %>
+        &nbsp;&nbsp;&nbsp;
+        <%= link_to "Logout", session_path(get_current_user["id"]), method: :delete, :class => 'navbar-link'  %>
+      </div>
+    <% else %>
+      <div class="one columns u-pull-right"><%= link_to "Sign up", new_user_path, :class => 'navbar-link header-signup-link'  %></div>
+      <div class="one columns u-pull-right"><%= link_to "Login", new_session_path, :class => 'navbar-link header-login-link' %></div>
+      <div class="nine columns u-pull-right login-form-div">
+        <%= render 'sessions/new' %>
+      </div>
+    <% end %>
+
+  </div>

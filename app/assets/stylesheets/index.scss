@@ -1,0 +1,238 @@
+body {
+  a {
+    text-decoration: none;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+}
+
+#pitch-it {
+  margin-top: 0.4em;
+  font-family: Damion;
+  font-size: 9em;
+}
+
+.fa-chevron-up, .fa-bookmark {
+  color: #22B7E0;
+}
+
+.user-has-voted, .user-has-bookmarked {
+  color: green;
+}
+
+#logo {
+  position: absolute;
+  top: 1.25em;
+  margin-left: 13.25em;
+}
+
+.main-headerr {
+  position: relative;
+  text-align: center;
+  display: inline;
+}
+
+img {
+  width: 260px;
+  height: 200px;
+}
+
+.page-title {
+  text-align: center;
+  padding-bottom: .5em;
+  border-bottom: 1px solid #EFEFEF;
+}
+
+.sort_type {
+  border-bottom: 1px solid #EFEFEF;
+  padding-bottom: .5em;
+  margin-bottom: 1em;
+  /*text-align: center;*/
+}
+
+.pitch + .pitch {
+  border-top: 1px solid #EFEFEF;
+  padding-top: 1em;
+}
+
+.button_to {
+  display: inline;
+  margin-right: 0;
+
+  input {
+    display: inline;
+  }
+}
+
+.pitch-user {
+  text-align: right;
+  position: relative;
+  right: 2%;
+}
+
+header {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  border-bottom: 1px solid #EFEFEF;
+  background-color: #22B7E0;
+  z-index: 10;
+  height: 2em;
+
+
+  a {
+    vertical-align: bottom;
+    color: white;
+  }
+}
+
+.page-body {
+  position: relative;
+  top: 2em;
+}
+
+.pitch-list {
+  list-style-type: none;
+  /*margin-top: 20%;*/
+}
+
+.pitch-title {
+  margin-left: 0px;
+}
+
+h4 > a {
+  position: relative;
+}
+
+.row + .row {
+  margin-top: 1em;
+}
+
+.rank {
+  text-align: center;
+  vertical-align: center;
+}
+
+.video-button form {
+  text-align: right;
+}
+
+#hide {
+  display: none;
+}
+
+.login-form-div {
+  text-align: right;
+  display: none;
+}
+
+
+#header-login-form {
+
+
+  margin-top: 5px;
+
+  font-size: 12px;
+
+  input[type=submit] {
+    background-color: white;
+    line-height: 1em;
+    position: relative;
+    top: -1px;
+  }
+
+  input {
+    height: 18px;
+  }
+
+  input + input {
+    margin-left: 1em;
+  }
+}
+
+.overlay {
+  background-color: #000000;
+  background-size: 100% 100%;
+  opacity: .6;
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.sign-up-box {
+  position: fixed;
+  display: none;
+  width: 14%;
+  background-color: white;
+  top: 50px;
+  /*left: 43%;*/
+  right: 1em;
+  z-index: 15;
+  padding: 2em;
+}
+
+.embedded.video {
+  padding-left: 8.5%;
+  padding-bottom: 2em;
+  padding-right: 10em;
+
+  iframe {
+    width: 80%;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  }
+}
+
+.home-link {
+  margin-left: 1em;
+}
+
+.user-links {
+  text-align: right;
+  position: relative;
+  right: 1em;
+}
+
+.exit-login {
+  color: white;
+}
+
+.exit-signup {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+}
+
+#header-signup-form input {
+  display: block;
+
+}
+
+@media (max-width: 700px) {
+  .user-welcome {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  #nav-bar div {
+    display: block;
+  }
+
+  header {
+    height: 6em;
+    text-align: center;
+
+    div {
+      text-align: center;
+      display: block;
+    }
+
+    .u-pull-right {
+      padding-right: 10%;
+    }
+  }
+}
+

@@ -1,0 +1,48 @@
+<ul class="pitch-list">
+  <% @pitches.each.with_index do |pitch, index| %>
+  <li class="pitch">
+    <div>
+
+      <div class="row">
+        <div class="one column rank"><h4><%= index + 1 %></h4></div>
+        <div class="pitch-title eight columns"><h4><a href="/pitches/<%= pitch[
+        'id'] %>"><%= pitch["title"] %></a></h4></div>
+
+      <% if pitch["media"] %>
+        <div class="three columns video-button" id="<%= pitch["id"] %>">
+          <%= button_to 'Show Video', pitches_path, method: :get, :class => "show-video-button u-pull-right" %>
+          <%= button_to 'Hide Video', pitches_path, method: :get, :class => "hide-video-button u-pull-right", id: "hide" %>
+        </div>
+      <% end %>
+      </div>
+
+
+      <div class="row pitch-info">
+        <div class="one column rank"><p>
+          <i class="fa fa-chevron-up pitch-vote-up fa-2x
+          <% if user_has_voted?(pitch["id"], 'Pitch') %>
+            user-has-voted
+           <% end %>"
+           id="<%= pitch["id"] %>-vote-up"></i>
+        </p></div>
+        <div class="eleven columns"><%= pitch["tagline"] %></div>
+      </div>
+
+
+      <div class="row">
+        <div id="<%= pitch["id"] %>-vote-count" class="one column pitch-vote-count"><%= pitch["vote_count"] %></div>
+
+        <div class="eleven columns embedded video" id="<%= pitch["id"] %>-video"></div>
+      </div>
+      <div class="row pitch-info">
+        <div class="one column rank"><p><i class='fa fa-bookmark fa-2x pitch-bookmark' id="<%= pitch["id"] %>-bookmark"></i></i></p></div>
+
+
+        <div class="two columns"><%= pitch["comment_count"] %> comments</div>
+        <div class="four columns"><%= pitch["created_at"] %></div>
+        <div class="three columns pitch-user u-pull-right"><a href='users/<%= pitch["user_id"] %>'><%= pitch["author"] %></a></div>
+      </div>
+    </div>
+  </li>
+  <% end %>
+</ul>
