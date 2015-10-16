@@ -3,6 +3,7 @@ class VotesController < ApplicationController
 
   include VotesHelper
   def create
+
   end
 
   protected

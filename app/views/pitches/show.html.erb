@@ -7,8 +7,8 @@
       <h4 title="Bookmark"><i class='fa fa-bookmark fa-2x
 
           pitch-bookmark' id="<%= @pitch["id"] %>-bookmark"></i></h4>
-          <% if session[:user_id] %>
-      <h4><%= link_to raw("<i class='fa fa-pencil fa-2x'></i>"), edit_pitch_path(@pitch) %></h4>
+    <% if @current_user && session[:user_id] == @pitch["user_id"] %>
+      <h4><%= link_to raw("<i class='fa fa-pencil fa-2x'></i>"), edit_pitch_path(@pitch["id"]) %></h4>
       <% end %>
 
   </div>
@@ -40,7 +40,7 @@
 
 <br>
 
-<% if @current_user && @current_user["id"] == @pitch["user_id"] %>
+<% if @current_user && session[:user_id] == @pitch["user_id"] %>
   <%= link_to "Edit Your Pitch", edit_pitch_path(@pitch["id"]) %>
 <% end %>
 

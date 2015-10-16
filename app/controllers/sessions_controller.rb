@@ -5,11 +5,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    p "LOGIN PARAMS"
-    p "*" * 80
-    p params
-    p "*" * 80
-
 
     response = RestClient.post 'http://localhost:3000/users/login', :user => params, :accept => :json
 
@@ -43,12 +38,6 @@ class SessionsController < ApplicationController
 
 
       current_user = RestClient.get("http://localhost:3000/users/" + session[:user_id].to_s, :accept => :json)
-
-      p "Current User*" * 20
-      p JSON.parse(current_user)
-      p "Current User*" * 20
-
       JSON.parse(current_user)
     end
 end
-  

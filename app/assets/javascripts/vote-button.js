@@ -22,13 +22,12 @@ $(document).ready(function(){
           data: data
         })
         .done(function(response){
-          console.log(response)
           if($(".main-header").hasClass("pitch-show-header")){
-            console.log("Pitch show page");
             $(".main-header").find(".pitch-vote-count").html(response.newVoteNum)
           } else {
             console.log("Pitch index page");
             $("#" + response.pitchId + "-vote-count").html(response.newVoteNum)
+
           }
         });
       }

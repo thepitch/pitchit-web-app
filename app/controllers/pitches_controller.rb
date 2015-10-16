@@ -10,7 +10,6 @@ class PitchesController < ApplicationController
 
     response = HTTParty.get('http://localhost:3000/pitches?sort_type=' + sort_type)
 
-    ap response
     @pitches = response.parsed_response
 
   end
@@ -20,7 +19,6 @@ class PitchesController < ApplicationController
     @pitch = response
     @pitch_comments = @pitch["comments"]
 
-    ap @pitch_comments
     if request.xhr?
       render text: @pitch["video"].to_json
     end
@@ -83,10 +81,6 @@ class PitchesController < ApplicationController
 
 
       current_user = RestClient.get("http://localhost:3000/users/" + session[:user_id].to_s, :accept => :json)
-
-      p "Current User*" * 20
-      p JSON.parse(current_user)
-      p "Current User*" * 20
 
       JSON.parse(current_user)
     end
