@@ -1,7 +1,6 @@
 $(document).ready(function(){
   $(".header-signup-link").click(function(event){
     event.preventDefault();
-    console.log("Fade city")
     fadeInSignUp();
   });
   // $("body").on("submit", '#header-signup-form', sendUserInfo)
@@ -45,6 +44,5 @@ var sendUserInfo = function(e){
   }).done(function(response){
     $.post('/set-session', { id: response.id });
     window.location.replace("/users/"  + response.id);
-    console.log(sessionStorage)  
   })
 }

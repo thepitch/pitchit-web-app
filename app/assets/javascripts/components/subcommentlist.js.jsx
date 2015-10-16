@@ -15,7 +15,6 @@ var SubCommentList = React.createClass({
   },
 
   createComment: function(subcomment){
-    console.log(subcomment.user_id)
     this.setState({
       subcomment: ''
     }),
