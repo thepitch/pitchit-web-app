@@ -8,13 +8,6 @@ class CommentsController < ApplicationController
   def create
     response = RestClient.post 'http://localhost:3000/comments', :comment => params,  :accept => :json
 
-    #   if @comment.save
-    #     render json: @comment
-    #   end
-    # else
-    #   # redirect_to user_session_path, notice: "Please log in to add a comment!"
-    #   # render 'new'
-    # end
   end
 
   def destroy

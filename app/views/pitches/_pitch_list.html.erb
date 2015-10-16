@@ -30,7 +30,7 @@
 
 
       <div class="row">
-        <div id="<%= pitch["id"] %>-vote-count" class="one column pitch-vote-count"><%= pitch["vote_count"] %> votes</div>
+        <div id="<%= pitch["id"] %>-vote-count" class="one column pitch-vote-count"><%= pitch["vote_count"] %></div>
 
         <div class="eleven columns embedded video" id="<%= pitch["id"] %>-video"></div>
       </div>
@@ -40,7 +40,7 @@
 
         <div class="two columns"><%= pitch["comment_count"] %> comments</div>
         <div class="four columns"><%= pitch["created_at"] %></div>
-        <div class="three columns pitch-user"><a href='users/<%= pitch["user_id"] %>'><%= pitch["author"] %></a></div>
+        <div class="three columns pitch-user u-pull-right"><a href='users/<%= pitch["user_id"] %>'><%= pitch["author"] %></a></div>
       </div>
     </div>
   </li>
