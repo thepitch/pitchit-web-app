@@ -40,12 +40,11 @@ class PitchesController < ApplicationController
 
     response = RestClient.post 'http://localhost:3000/pitches', :pitch => params, :accept => :json
 
-    # @pitch = current_user.pitches.new(pitch_params)
-    # if @pitch.save
-    #   redirect_to @pitch
-    # else
-    #   render 'new'
-    # end
+    response = JSON.parse(response)
+
+    p response
+
+    redirect_to pitch_path(response["id"])
   end
 
   def update

@@ -1,4 +1,5 @@
 <form id="new-pitch-form" class="new_pitch" action="/pitches" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+  <input name="pitch[user_id]" type="hidden" value="<%= @current_user['id'] %>" >
   <div class="row">
     <div class="new-pitch field five columns">
       <input autofocus="autofocus" autocomplete="false" placeholder="title" type="text" name="pitch[title]" id="pitch_title" />
