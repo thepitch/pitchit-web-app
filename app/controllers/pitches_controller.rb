@@ -5,12 +5,12 @@ class PitchesController < ApplicationController
   respond_to :html, :json
   before_action :set_current_user
 
-  def index 
+  def index
     sort_type = params[:sort_type] || "hot"
 
     response = HTTParty.get('http://localhost:3000/pitches?sort_type=' + sort_type)
-    
 
+    ap response
     @pitches = response.parsed_response
 
   end
