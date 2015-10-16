@@ -14,11 +14,12 @@ $(document).ready(function(){
     if(isLoggedIn){
       if(!$(this).hasClass("user-has-voted")){
         $(this).addClass("user-has-voted");
-        $.post({
+        var data = {votable_id: votableId, votable_type: votableType, user_id: userId}
+        $.ajax({
           url: 'http://localhost:3000/votes',
           method: 'POST',
           dataType: 'json',
-          data: {votable_id: votableId, votable_type: votableType, user_id: userId}
+          data: data
         })
         .done(function(response){
           console.log(response)
