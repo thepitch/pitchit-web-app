@@ -1,98 +1,96 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Edit Your Profile</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, id: "user_form" }) do |f| %>
-  <%= devise_error_messages! %>
+<form id="user_form" class="edit_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="HcqQG/qjTnpsx8CL09vqtK/iCbtASoLf7vdnAQ7oyCgV+svPWWpXQiZspVro9jrfWPn6qT15aQExOcjvOz2TJg==" />
+  
 
   <div class="row">
     <div class="new-pitch field five columns">
-      <%= f.text_field :first_name, autofocus: true, placeholder: "first name" %>
+      <input autofocus="autofocus" placeholder="first name" type="text" value="Yohan" name="user[first_name]" id="user_first_name" />
     </div>
   </div>
 
   <div class="row">
     <div class="new-pitch field five columns">
-      <%= f.text_field :last_name, autofocus: true, placeholder: "last name" %>
+      <input autofocus="autofocus" placeholder="last name" type="text" value="yolo" name="user[last_name]" id="user_last_name" />
     </div>
   </div>
 
   <div class="row">
     <div class="new-pitch field five columns">
-      <%= f.email_field :email, autofocus: true, placeholder: "email" %>
+      <input autofocus="autofocus" placeholder="email" type="email" value="y@y.com" name="user[email]" id="user_email" />
     </div>
   </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
 
   <div class="row">
     <div class="new-pitch field five columns">
-      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-      <%= f.password_field :password, autocomplete: "off", placeholder: "password (leave blank if you don't want to change it)" %>
+      <label for="user_password">Password</label> <i>(leave blank if you don't want to change it)</i><br />
+      <input autocomplete="off" placeholder="password (leave blank if you don&#39;t want to change it)" type="password" name="user[password]" id="user_password" />
     </div>
   </div>
 
   <div class="row">
     <div class="new-pitch field five columns">
-      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "confirm password" %>
+      <input autocomplete="off" placeholder="confirm password" type="password" name="user[password_confirmation]" id="user_password_confirmation" />
     </div>
   </div>
 
   <div class="row">
     <div class="new-pitch field five columns">
-      <%= f.url_field :picture_url, autocomplete: "off", placeholder: "avatar url" %>
+      <input autocomplete="off" placeholder="avatar url" type="url" value="" name="user[picture_url]" id="user_picture_url" />
     </div>
   </div>
 
   <div class="row">
     <div class="new-pitch field five columns">
-      <%= f.text_field :company, placeholder: "company" %>
+      <input placeholder="company" type="text" value="Swag LLC" name="user[company]" id="user_company" />
     </div>
   </div>
 
   <div class="row">
     <div class="new-pitch field five columns">
-      <%= f.label :blurb %><br />
-      <%= f.text_area :blurb, placeholder: "blurb" %>
+      <label for="user_blurb">Blurb</label><br />
+      <textarea placeholder="blurb" name="user[blurb]" id="user_blurb">
+yol ocity </textarea>
     </div>
   </div>
 
   <div class="row">
     <div class="new-pitch field five columns">
-      <%= f.label :phone %><br />
-      <%= f.telephone_field :phone, autocomplete: "off", placeholder: "phone" %>
+      <label for="user_phone">Phone</label><br />
+      <input autocomplete="off" placeholder="phone" type="tel" value="" name="user[phone]" id="user_phone" />
     </div>
   </div>
-    <%= f.label :user_type %>
-      <% ['entrepreneur','early_adopter','venture_capitalist'].each do |user_type| %>
-      <br>
-  <div class="row">
-      <div class="one column">
-      <%= radio_button_tag 'user[user_type]', user_type, @user_type == user_type %>
-      </div>
-      <div class="five columns">
-      <%= user_type.gsub("_", " ").capitalize %>
-      </div>
-      <br/>
-  </div>
-    <% end %>
-    <br/>
 
+  <label for="user_user_type">User type</label>
+  <div class="row">
+    <div class="field one column"><input type="radio" name="user_type" id="user_type_business" value="business" /></div>
+    <div class="field five columns">I'm an entrepeneur</div>
+  </div>
+  <div class="row">
+      <div class="field one column"><input type="radio" name="user_type" id="user_type_investor" value="investor" /></div>
+      <div class="field five columns">I'm interested in investing</div>
+  </div>
+  <div class="row">
+      <div class="field one column"><input type="radio" name="user_type" id="user_type_early_adopter" value="early_adopter" /></div>
+      <div class="field five columns">I'm an early adopter</div>
+  </div>
 
   <div class="row">
     <div class="field">
-      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-      <%= f.password_field :current_password, autocomplete: "off" %>
+      <label for="user_current_password">Current password</label> <i>(we need your current password to confirm your changes)</i><br />
+      <input autocomplete="off" type="password" name="user[current_password]" id="user_current_password" />
     </div>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <input type="submit" name="commit" value="Update" />
   </div>
-<% end %>
-
+</form>
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => "button" %></p>
+<p>Unhappy? <a data-confirm="Are you sure?" class="button" rel="nofollow" data-method="delete" href="/users">Cancel my account</a></p>
 
-<%= link_to "Back", :back %>
+<a href="http://localhost:9000/pitches/new">Back</a>
+
+</div>
