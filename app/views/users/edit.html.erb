@@ -1,30 +1,30 @@
 <h2>Edit Your Profile</h2>
 
 <form id="user_form" class="edit_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="HcqQG/qjTnpsx8CL09vqtK/iCbtASoLf7vdnAQ7oyCgV+svPWWpXQiZspVro9jrfWPn6qT15aQExOcjvOz2TJg==" />
-  
+
 
   <div class="row">
     <div class="new-pitch field five columns">
-      <input autofocus="autofocus" placeholder="first name" type="text" value="Yohan" name="user[first_name]" id="user_first_name" />
+      <input autofocus="autofocus" placeholder="first name" type="text" name="user[first_name]" id="user_first_name" />
     </div>
   </div>
 
   <div class="row">
     <div class="new-pitch field five columns">
-      <input autofocus="autofocus" placeholder="last name" type="text" value="yolo" name="user[last_name]" id="user_last_name" />
+      <input autofocus="autofocus" placeholder="last name" type="text" name="user[last_name]" id="user_last_name" />
     </div>
   </div>
 
   <div class="row">
     <div class="new-pitch field five columns">
-      <input autofocus="autofocus" placeholder="email" type="email" value="y@y.com" name="user[email]" id="user_email" />
+      <input autofocus="autofocus" placeholder="email" type="email" name="user[email]" id="user_email" />
     </div>
   </div>
 
 
   <div class="row">
     <div class="new-pitch field five columns">
-      <label for="user_password">Password</label> <i>(leave blank if you don't want to change it)</i><br />
+      <label for="user_password">Password</label><br />
       <input autocomplete="off" placeholder="password (leave blank if you don&#39;t want to change it)" type="password" name="user[password]" id="user_password" />
     </div>
   </div>
@@ -43,15 +43,14 @@
 
   <div class="row">
     <div class="new-pitch field five columns">
-      <input placeholder="company" type="text" value="Swag LLC" name="user[company]" id="user_company" />
+      <input placeholder="company" type="text" name="user[company]" id="user_company" />
     </div>
   </div>
 
   <div class="row">
     <div class="new-pitch field five columns">
       <label for="user_blurb">Blurb</label><br />
-      <textarea placeholder="blurb" name="user[blurb]" id="user_blurb">
-yol ocity </textarea>
+      <textarea name="user[blurb]" id="user_blurb" placeholder="Say something about yourself"></textarea>
     </div>
   </div>
 
