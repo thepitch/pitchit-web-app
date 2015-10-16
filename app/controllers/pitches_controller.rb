@@ -38,6 +38,8 @@ class PitchesController < ApplicationController
 
   def create
 
+    response = RestClient.post 'http://localhost:3000/pitches', :pitch => params, :accept => :json
+
     # @pitch = current_user.pitches.new(pitch_params)
     # if @pitch.save
     #   redirect_to @pitch
