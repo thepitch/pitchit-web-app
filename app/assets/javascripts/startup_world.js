@@ -1,6 +1,9 @@
 $(document).ready(function(){
   console.log("ready")
   setView()
+  twttr.widgets.load()
+  // setupTwitter
+  $('.twitter-timeline').load()
   $("#select-view > p > button.entrepreneur").on("click", loadEntrepreneurPage)
   $(".newideas").on("click", loadEarlyAdopterPage)
   $(".venture-capital").on("click", loadVentureCapitalPage)
@@ -48,21 +51,6 @@ var loadEarlyAdopterPage = function(){
   setView("early-adopter")
 }
 
-var getAPIs = function(view){
-  if (view == "venture-capital") {
-    var url = "https://www.kimonolabs.com/api/e8o30vy6?apikey=tNrHwUhcshyBMnTyYVc5zzku1xjKUq1x"
-    $.ajax({
-      url: url,
-      dataType: "jsonp"
-    }).done(function(response){
-      console.log(response.results)
-      $('.links').html(response.results.collection1[0].property1.src)
-    }).fail( function(response){
-      console.log("fail")
-    })
-
-  }
-}
 //ENTREPRENEURS
 var entrepreneurAPIs = function() {
   $('.links').empty()
