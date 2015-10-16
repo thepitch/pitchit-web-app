@@ -24,12 +24,12 @@ var embedVideo = function(event){
   console.log("lets embed")
   event.preventDefault()
   var id = $(this).parent().parent().attr("id")
-  var url = "pitches/" + id
+  var url = "/pitches/" + id
   $('div#'+ id + ' .hide-video-button').show()
   $(this).hide()
   $.getJSON(url, function(pitchData){
     console.log(pitchData)
-    $('div#' + id + '-video').html('<iframe width="560" height="315" src=' + pitchData + 'frameborder="0" allowfullscreen></iframe>')
+    $('div#' + id + '-video').html('<iframe width="560" height="315" src=' + pitchData + ' frameborder="0" allowfullscreen></iframe>')
   })
 }
 
