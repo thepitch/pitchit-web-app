@@ -30,6 +30,8 @@ var Comment = React.createClass({
         </div>
         <div className="row">
           <div className="five columns">&mdash; <em>{this.props.commenterName}, {this.props.commentTime}</em></div>
+          <div className="five columns commenter">&mdash; <em>{this.props.commenterName}, {this.props.commentTime}</em></div>
+
           <div className="two columns u-pull-right"><button onClick={this.onClick} type="button"> Reply </button></div>
         </div>
 

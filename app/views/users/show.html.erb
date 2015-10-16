@@ -15,7 +15,7 @@
         <% if @user_hash["user_type"] %>
           <h4><%= @user_hash["first_name"] %> is a <%= @user_hash["user_type"] %></h4>
         <% end %>
-        <p><%= @user_hash["blurb"] || "This @user_hash does not have a blurb yet." %></p>
+        <p><%= @user_hash["blurb"] || "This user does not have a blurb yet." %></p>
       </div>
     </div>
   </div>
@@ -32,7 +32,7 @@
 <% end %>
 
   <% if @user_hash["pitches"] && @user_hash["pitches"].length > 0 %>
-    <table class="@user_hash-pitches">
+    <table class="@user_hash-pitches user_table user-pitches">
       <thead>
         <td>Pitches</td>
         <td class="votes-heading">Votes</td>
