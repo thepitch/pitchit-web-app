@@ -4,6 +4,8 @@ $(document).ready(function(){
   $("#select-view > p > button.entrepreneur").on("click", loadEntrepreneurPage)
   $(".newideas").on("click", loadEarlyAdopterPage)
   $(".venture-capital").on("click", loadVentureCapitalPage)
+  $('div#sosw').on("click", '.show-video-button', embedVideo)
+  $('div#sosw').on("click", '.hide-video-button', hideVideo)
 
 })
 
