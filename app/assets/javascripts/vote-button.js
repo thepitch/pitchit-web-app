@@ -16,7 +16,7 @@ $(document).ready(function(){
         $(this).addClass("user-has-voted");
         var data = {votable_id: votableId, votable_type: votableType, user_id: userId}
         $.ajax({
-          url: 'http://localhost:3000/votes',
+          url: 'http://pitchitbackend.herokuapp.com/votes',
           method: 'POST',
           dataType: 'json',
           data: data

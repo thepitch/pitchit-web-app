@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 
 
   def create
-    response = RestClient.post 'http://localhost:3000/comments', :comment => params,  :accept => :json
+    response = RestClient.post 'http://pitchitbackend.herokuapp.com/comments', :comment => params,  :accept => :json
 
   end
 

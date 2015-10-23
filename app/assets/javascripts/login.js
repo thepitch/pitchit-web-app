@@ -9,7 +9,7 @@ $(document).ready(function(){
 
 //   $("header").on("submit", "#header-login-form", function(event){
 //     event.preventDefault();
-//     var action = 'http://localhost:3000/users/login';
+//     var action = 'http://pitchitbackend.herokuapp.com/users/login';
 //     var method = $(this).attr("method");
 //     var data = $(this).serialize();
 //     var currentUrl = document.URL

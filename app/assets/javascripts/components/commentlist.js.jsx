@@ -18,7 +18,7 @@ var CommentList = React.createClass({
       comment: ''
     }),
     $.ajax({
-      url: 'http://localhost:3000/comments',
+      url: 'http://pitchitbackend.herokuapp.com/comments',
       dataType: 'json',
       type: 'post',
       data: {comment: {content: comment, pitch_id: this.props.pitch, user_id: this.props.user_id }},

@@ -30,7 +30,7 @@ var sendUserInfo = function(e){
   e.preventDefault()
   // console.log("HIT!")
   var data = $(this).serialize()
-  var url = 'http://localhost:3000/users'
+  var url = 'http://pitchitbackend.herokuapp.com/users'
   var method = $(this).attr("method")
   $.ajax({
     url: url,

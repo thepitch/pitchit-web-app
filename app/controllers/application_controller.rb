@@ -39,7 +39,7 @@ class ApplicationController < ActionController::Base
     headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
     headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
     headers['Access-Control-Max-Age'] = '1728000'
-    # if /\Ahttps?:\/\/localhost:3000\z/ =~ request.headers['HTTP_ORIGIN']
+    # if /\Ahttps?:\/\/pitchitbackend.herokuapp.com\z/ =~ request.headers['HTTP_ORIGIN']
     #   p "************************"
     #   p headers['Access-Control-Allow-Origin']
     #   p "I'M HIT!"
@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_current_user
-    HTTParty.get('http://localhost:3000/current-user')
+    HTTParty.get('http://pitchitbackend.herokuapp.com/current-user')
   end
 
 end

@@ -10,7 +10,7 @@ $(document).ready(function(){
     if (isLoggedIn) {
       $(this).toggleClass("user-has-bookmarked");
       $.ajax({
-        url: 'http://localhost:3000/votes',
+        url: 'http://pitchitbackend.herokuapp.com/votes',
         method: 'POST',
         dataType: 'json',
         data: {votable_id: votableId, votable_type: votableType, bookmarked: true, user_id: userId}

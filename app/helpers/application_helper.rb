@@ -1,6 +1,6 @@
 module ApplicationHelper
   # def current_user
-  #   # response = HTTParty.get('http://localhost:3000/current-user').parsed_response
+  #   # response = HTTParty.get('http://pitchitbackend.herokuapp.com/current-user').parsed_response
   #   # !!response
   # end
 

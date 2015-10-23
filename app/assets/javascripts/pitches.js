@@ -8,7 +8,7 @@ var sortHot = function(e){
   e.preventDefault();
   var data = {sort_type: $(this).attr("id")};
   $.ajax({
-    url: 'http://localhost:3000/pitches?sort_type=' + data.sort_type,
+    url: 'http://pitchitbackend.herokuapp.com/pitches?sort_type=' + data.sort_type,
     data: data,
     dataType: "json"
   }).done(function(response){

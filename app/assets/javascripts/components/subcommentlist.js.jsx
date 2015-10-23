@@ -19,7 +19,7 @@ var SubCommentList = React.createClass({
       subcomment: ''
     }),
     $.ajax({
-      url: 'http://localhost:3000/subcomments',
+      url: 'http://pitchitbackend.herokuapp.com/subcomments',
       dataType: 'json',
       type: 'post',
       data: {subcomment: {content: subcomment, comment_id: this.props.id, user_id: this.props.user_id }},

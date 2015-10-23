@@ -5,7 +5,7 @@ class SubcommentsController < ApplicationController
   end
 
   def create
-    response = RestClient.post 'http://localhost:3000/subcomments', :subcomment => params,  :accept => :json
+    response = RestClient.post 'http://pitchitbackend.herokuapp.com/subcomments', :subcomment => params,  :accept => :json
     # if current_user
     #   @subcomment = current_user.subcomments.build(subcomment_params)
     #   if @subcomment.save

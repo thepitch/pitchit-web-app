@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     id = params[:id]
 
-    response = HTTParty.get('http://localhost:3000/users/'+id)
+    response = HTTParty.get('http://pitchitbackend.herokuapp.com/users/'+id)
     @user_hash = response
   end
 
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    response = RestClient.post 'http://localhost:3000/users', :user => params, :accept => :json
+    response = RestClient.post 'http://pitchitbackend.herokuapp.com/users', :user => params, :accept => :json
 
     session[:user_id] = JSON.parse(response)["id"]
 
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    HTTParty.post('http://localhost:3000/users/' + params[:id],
+    HTTParty.post('http://pitchitbackend.herokuapp.com/users/' + params[:id],
       params[:user]
     )
   end
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
       return nil unless session[:user_id]
 
 
-      current_user = RestClient.get("http://localhost:3000/users/" + session[:user_id].to_s, :accept => :json)
+      current_user = RestClient.get("http://pitchitbackend.herokuapp.com/users/" + session[:user_id].to_s, :accept => :json)
 
       JSON.parse(current_user)
     end

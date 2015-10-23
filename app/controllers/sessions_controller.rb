@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   def create
 
-    response = RestClient.post 'http://localhost:3000/users/login', :user => params, :accept => :json
+    response = RestClient.post 'http://pitchitbackend.herokuapp.com/users/login', :user => params, :accept => :json
 
 
     unless response == "Invalid Login"
@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
       return nil unless session[:user_id]
 
 
-      current_user = RestClient.get("http://localhost:3000/users/" + session[:user_id].to_s, :accept => :json)
+      current_user = RestClient.get("http://pitchitbackend.herokuapp.com/users/" + session[:user_id].to_s, :accept => :json)
       JSON.parse(current_user)
     end
 end

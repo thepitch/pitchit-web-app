@@ -8,14 +8,14 @@ class PitchesController < ApplicationController
   def index
     sort_type = params[:sort_type] || "hot"
 
-    response = HTTParty.get('http://localhost:3000/pitches?sort_type=' + sort_type)
+    response = HTTParty.get('http://pitchitbackend.herokuapp.com/pitches?sort_type=' + sort_type)
 
     @pitches = response.parsed_response
 
   end
 
   def show
-    response = HTTParty.get('http://localhost:3000/pitches/' + params[:id])
+    response = HTTParty.get('http://pitchitbackend.herokuapp.com/pitches/' + params[:id])
     @pitch = response
     @pitch_comments = @pitch["comments"]
 
@@ -36,7 +36,7 @@ class PitchesController < ApplicationController
 
   def create
 
-    response = RestClient.post 'http://localhost:3000/pitches', :pitch => params, :accept => :json
+    response = RestClient.post 'http://pitchitbackend.herokuapp.com/pitches', :pitch => params, :accept => :json
 
     response = JSON.parse(response)
 
@@ -65,7 +65,7 @@ class PitchesController < ApplicationController
   def sort
     sort_type = params[:sort_type] || "hot"
 
-    response = HTTParty.get('http://localhost:3000/pitches?sort_type=' + sort_type)
+    response = HTTParty.get('http://pitchitbackend.herokuapp.com/pitches?sort_type=' + sort_type)
 
     @pitches = response.parsed_response
     render partial: 'pitches/pitch_list'
@@ -80,7 +80,7 @@ class PitchesController < ApplicationController
       return nil unless session[:user_id]
 
 
-      current_user = RestClient.get("http://localhost:3000/users/" + session[:user_id].to_s, :accept => :json)
+      current_user = RestClient.get("http://pitchitbackend.herokuapp.com/users/" + session[:user_id].to_s, :accept => :json)
 
       JSON.parse(current_user)
     end
