@@ -20,12 +20,12 @@ Rails.application.routes.draw do
   resources :users
   resources :comments, only: [:new, :create, :destroy]
   resources :subcomments, only: [:new, :create, :destroy]
-
+  get "/startup_world" => 'startup_world#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  match "/startup_world", to: "startup_world#index", :via => 'get'
+  # match "/startup_world", to: "startup_world#index", :via => 'get'
   resources :pitches
 
   resources :votes, only: [:create, :update] do
